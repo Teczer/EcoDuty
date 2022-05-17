@@ -33,7 +33,7 @@ struct ChallengeProofView: View {
                     VStack (alignment : .leading, spacing : 20){
                         Text("Titre du défi")
                             .font(.largeTitle)
-                        Text("Comment valider ce défi ?")
+                        Text("valider ce défi ?")
                             .font(.title2)
                         Text("""
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
