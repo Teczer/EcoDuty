@@ -17,21 +17,12 @@ struct DetailedChallengeView: View {
                 HStack(spacing:70){
                     Text("Titre du défi")
                         .foregroundColor(.white)
-                        .font(.title2)
+                        .font(.title)
                         .fontWeight(.bold)
                         .padding([.top, .leading], 17.0)
                         .fixedSize()
-                        
-                    HStack{
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.white)
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.white)
-                            .opacity(0.5)
-                        Image(systemName: "star.fill")
-                            .foregroundColor(Color(.white)
-                            )
-                        .opacity(0.5)}
+                            
+                    
                     }
                 .padding([.bottom], 30.0)
                 
@@ -54,12 +45,17 @@ struct DetailedChallengeView: View {
                 
                 
                
-                Text("@ En ligne")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding()
+                HStack {
+                    Group {
+                        Image(systemName: "iphone")
+                            .font(.system(size: 30))
+                    }
+                    Text("En ligne")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                }
                 
-                Text("Titre du défi")
+                Text("Sous-titre")
                     .foregroundColor(.white)
                     .font(.title2)
                     .fontWeight(.bold)
@@ -79,19 +75,28 @@ struct DetailedChallengeView: View {
                 
                 .foregroundColor(Color("cosmic-cobalt"))
                 .background(.white)
-                .cornerRadius(10)
-                .padding()
+                .cornerRadius(5)
                 
+                .padding(.bottom, 20)
                 Button {
                     
                 } label: {
-                    Text("Abbandonner le défi")
-                }
-                .frame(width: 280, height: 50, alignment: .center)
-                .border(.white, width: 2)
-                .background(Color("cosmic-cobalt"))
-                .cornerRadius(10)
-                .padding(.leading)
+                    RoundedRectangle(cornerRadius: 5)
+                        .frame(width: 280.0, height: 50.0)
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.white, lineWidth: 4)
+                        )
+                        .foregroundColor(Color("cosmic-cobalt"))
+                        .overlay(
+                            Text("Abandonner le défi")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                        )
+                    
+                } .frame(width: 285, height: 55, alignment: .center)
+                    .background(Color("cosmic-cobalt"))
+                    .cornerRadius(10)
                 
                 
             }

@@ -25,7 +25,7 @@ struct RankingView: View {
             VStack {
                 VStack {
                     Spacer()
-                        .frame(height: 70)
+                        .frame(height: 100)
                     Picker("Classement", selection: $selectedRank) {
                         ForEach(RegionRank.allCases, id: \.self) {
                             Text($0.rawValue)

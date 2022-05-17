@@ -28,6 +28,7 @@ struct Tag{
     var manif:Bool = false
     var petition:Bool = false
     var food:Bool = false
+    var nature:Bool = false
 }
 
 
