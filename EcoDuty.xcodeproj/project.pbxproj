@@ -20,7 +20,6 @@
 		63226493282BB6F500DEC480 /* DetailedChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63226492282BB6F500DEC480 /* DetailedChallengeView.swift */; };
 		63226495282BB70E00DEC480 /* SuccessfulChallengeView_modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63226494282BB70E00DEC480 /* SuccessfulChallengeView_modal.swift */; };
 		63226497282BB72200DEC480 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63226496282BB72200DEC480 /* PreferencesView.swift */; };
-		6322649D282BB75900DEC480 /* CompletedChallengesView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6322649C282BB75900DEC480 /* CompletedChallengesView .swift */; };
 		6322649F282BB76500DEC480 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6322649E282BB76500DEC480 /* RankingView.swift */; };
 		632264A1282BB78000DEC480 /* LocalRankingView_option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632264A0282BB78000DEC480 /* LocalRankingView_option.swift */; };
 		632264A3282BB79000DEC480 /* NationalRankingView_option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632264A2282BB79000DEC480 /* NationalRankingView_option.swift */; };
@@ -53,7 +52,6 @@
 		63226492282BB6F500DEC480 /* DetailedChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedChallengeView.swift; sourceTree = "<group>"; };
 		63226494282BB70E00DEC480 /* SuccessfulChallengeView_modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulChallengeView_modal.swift; sourceTree = "<group>"; };
 		63226496282BB72200DEC480 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		6322649C282BB75900DEC480 /* CompletedChallengesView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompletedChallengesView .swift"; sourceTree = "<group>"; };
 		6322649E282BB76500DEC480 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		632264A0282BB78000DEC480 /* LocalRankingView_option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRankingView_option.swift; sourceTree = "<group>"; };
 		632264A2282BB79000DEC480 /* NationalRankingView_option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRankingView_option.swift; sourceTree = "<group>"; };
@@ -122,12 +120,11 @@
 				63226490282BB6D600DEC480 /* ChallengeView.swift */,
 				63226492282BB6F500DEC480 /* DetailedChallengeView.swift */,
 				C374F1A72833D19600BC4B3E /* DroppedChallengeView_modal.swift */,
-				63226494282BB70E00DEC480 /* SuccessfulChallengeView_modal.swift */,
 				C374F1A92833E82200BC4B3E /* ChallengeProofView.swift */,
+				63226494282BB70E00DEC480 /* SuccessfulChallengeView_modal.swift */,
 				63226496282BB72200DEC480 /* PreferencesView.swift */,
 				C34FD721283287BF006072E5 /* ProfileView.swift */,
 				C388A87A28339B4600551292 /* EditProfileView.swift */,
-				6322649C282BB75900DEC480 /* CompletedChallengesView .swift */,
 				6322649E282BB76500DEC480 /* RankingView.swift */,
 				632264A0282BB78000DEC480 /* LocalRankingView_option.swift */,
 				632264A2282BB79000DEC480 /* NationalRankingView_option.swift */,
@@ -233,7 +230,6 @@
 				63226483282BB26000DEC480 /* User_struct.swift in Sources */,
 				C3C036BF28339F94009F6F3B /* ImagePicker.swift in Sources */,
 				63226485282BB36C00DEC480 /* Reward_struct.swift in Sources */,
-				6322649D282BB75900DEC480 /* CompletedChallengesView .swift in Sources */,
 				C388A87B28339B4600551292 /* EditProfileView.swift in Sources */,
 				C374F1A82833D19600BC4B3E /* DroppedChallengeView_modal.swift in Sources */,
 				632264A7282BB7B300DEC480 /* NewRewardView_modal.swift in Sources */,

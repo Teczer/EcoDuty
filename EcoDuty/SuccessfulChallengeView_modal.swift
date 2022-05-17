@@ -86,7 +86,7 @@ struct SuccessfulChallengeView_modal: View {
 
 struct SuccessfulChallengeView_modal_Previews: PreviewProvider {
     static var previews: some View {
-        //SuccessfulChallengeView_modal(closeSuccessfulChallengeView: true)
+
         SuccessfulChallengeView_modal(closeSuccessfulChallengeView : .constant(true))
     }
 }

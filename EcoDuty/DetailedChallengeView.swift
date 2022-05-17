@@ -78,9 +78,11 @@ struct DetailedChallengeView: View {
                 .cornerRadius(5)
                 
                 .padding(.bottom, 20)
-                Button {
-                    
-                } label: {
+                
+                
+ 
+                
+                NavigationLink(destination: DroppedChallengeView_modal()) {
                     RoundedRectangle(cornerRadius: 5)
                         .frame(width: 280.0, height: 50.0)
                         .background(
@@ -98,7 +100,8 @@ struct DetailedChallengeView: View {
                     .background(Color("cosmic-cobalt"))
                     .cornerRadius(10)
                 
-                
+                    .background(Color("cosmic-cobalt"))
+                    .cornerRadius(10)
             }
             
             .foregroundColor(.white)
