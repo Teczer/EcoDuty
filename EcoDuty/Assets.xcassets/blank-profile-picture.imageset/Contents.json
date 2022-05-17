@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ArianaGrande.jpeg",
+      "filename" : "blank-profile-picture.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "blank-profile-picture-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "blank-profile-picture (1).png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "localizable" : true
   }
 }

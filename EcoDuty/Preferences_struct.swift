@@ -6,29 +6,29 @@
 //
 
 import Foundation
-
+ 
 struct Preferences {
     
-    var selectedDifficulty: Difficulty
+   
     var irlMethod : Bool
     var onlineMethod : Bool
-    var selectedLocalization : Localisation
+    var easyLevel:Bool
+    var mediumLevel:Bool
+    var difficultLevel:Bool
     
+  
     
-    enum Difficulty{
-        
-    }
-    
-    enum Tag {
-        case waste, animals, nature, manif, petition, food
-    }
-    
-    enum Localisation {
-        
-    }
+ 
 }
-
-
+ 
+ 
+struct Tag{
+    var waste:Bool = false
+    var animals:Bool = false
+    var manif:Bool = false
+    var petition:Bool = false
+    var food:Bool = false
+}
 
 
 

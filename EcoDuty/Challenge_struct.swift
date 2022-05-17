@@ -13,6 +13,8 @@ struct Challenge {
     var challengeDescription : String
     var challengePoints : Int
     var challengeStatus : String
+    var prefer : Preferences
+    var tags: Tag
     
 }
 

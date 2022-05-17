@@ -47,7 +47,7 @@ struct RewardsModalStruct: View {
             // Snappy en haut à gauche
                 VStack {
                     HStack {
-                        Image("MascotHappyFace")
+                        Image("MascotHappyFaceCropped")
                         Spacer()
                             .frame(width: 220)
                     }

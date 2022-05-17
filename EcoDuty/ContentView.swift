@@ -11,8 +11,9 @@ struct ContentView: View {
 
     
     init() {
-        UITabBar.appearance().barTintColor = UIColor(Color("yellow-pantone"))
+//        UITabBar.appearance().barTintColor = UIColor(Color("yellow-pantone"))
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
+        UITabBar.appearance().backgroundColor = UIColor(named: "cosmic-cobalt")
     }
     var body: some View {
         TabView {

@@ -6,16 +6,21 @@
 //
 
 import Foundation
-
+ 
 struct User {
     
     var userName : String
     var userLevel : Level
+    var userPoints : Int // pour le classement
     var userImage : String
     var userBadges : [String]
-    var userLocalization : Preferences.Localisation
+    var userLocalization : Localization
+    var myChallenge: [Challenge]
     
     enum Level {
+        
+    }
+    enum Localization{
         
     }
 }

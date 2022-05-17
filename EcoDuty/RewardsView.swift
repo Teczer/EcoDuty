@@ -101,6 +101,7 @@ struct RewardsView: View {
 struct RewardsView_Previews: PreviewProvider {
     static var previews: some View {
         RewardsView()
+            .previewInterfaceOrientation(.portrait)
     }
 }
 // Ensemble d'un rectangle avec ses composants en non surbrillance (Niveau atteint ou non)
