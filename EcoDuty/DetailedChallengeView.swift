@@ -16,7 +16,7 @@ struct DetailedChallengeView: View {
             VStack(alignment: .leading){
                 Spacer()
                 HStack(spacing:70){
-                    Text(myChall2.challengeTitle)
+                    Text(myChall2.challengeTitleDetail)
                         .foregroundColor(.white)
                         .font(.title)
                         .fontWeight(.bold)

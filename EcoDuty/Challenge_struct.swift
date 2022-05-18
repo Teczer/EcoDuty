@@ -6,7 +6,6 @@ struct Challenge {
     var challengeTitle : String
     var challengeDescription : String
     var challengeTitleDetail: String
- 
     var challengeInOut: String
     var chalTagNature1:String
     var chalTagNature2:String
