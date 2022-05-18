@@ -65,22 +65,23 @@ struct DetailedChallengeView: View {
                 
                     .padding()
                 
-                Button {
+                
+                
+                NavigationLink(destination: ChallengeProofView()) {
                     
-                } label: {
+                    
                     Text("Click ici une fois le défi terminé")
-                }
+                    
+                    
+                    
+                    
+                } .frame(width: 280, height: 50, alignment: .center)
                 
-                .frame(width: 280, height: 50, alignment: .center)
+                                .foregroundColor(Color("cosmic-cobalt"))
+                                .background(.white)
+                                .cornerRadius(5)
                 
-                .foregroundColor(Color("cosmic-cobalt"))
-                .background(.white)
-                .cornerRadius(5)
-                
-                .padding(.bottom, 20)
-                
-                
- 
+                                .padding(.bottom, 20)
                 
                 NavigationLink(destination: DroppedChallengeView_modal()) {
                     RoundedRectangle(cornerRadius: 5)
@@ -99,9 +100,7 @@ struct DetailedChallengeView: View {
                 } .frame(width: 285, height: 55, alignment: .center)
                     .background(Color("cosmic-cobalt"))
                     .cornerRadius(10)
-                
-                    .background(Color("cosmic-cobalt"))
-                    .cornerRadius(10)
+
             }
             
             .foregroundColor(.white)
