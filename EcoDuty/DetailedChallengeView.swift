@@ -10,13 +10,12 @@ import SwiftUI
 struct DetailedChallengeView: View {
     
     
-    @EnvironmentObject var settings: GameSettings
+//    @EnvironmentObject var settings: GameSettings
     
     @State var openDroppedChallengeViewModal = false
     
     @Binding var myChall2 : Challenge
     var body: some View {
-        NavigationView{
             ZStack{
                 Color("cosmic-cobalt")
                     .ignoresSafeArea()
@@ -84,7 +83,7 @@ struct DetailedChallengeView: View {
                     
                     HStack(alignment: .center) {
                         Spacer()
-                        NavigationLink(destination: ChallengeProofView()) {
+                        NavigationLink(destination: ChallengeProofView(challengePointsAdditional: $myChall2)) {
                             
                             
                             Text("Valider le défi")
@@ -130,11 +129,14 @@ struct DetailedChallengeView: View {
                
                 
                 }
+            
+            
+            
             .sheet(isPresented: $openDroppedChallengeViewModal, content: {
                 DroppedChallengeView_modal(closeDroppedChallengeView:  $openDroppedChallengeViewModal)
         })
-            .environmentObject(settings)
-        }
+//            .environmentObject(settings)
+        
         
         }
        
@@ -143,6 +145,6 @@ struct DetailedChallengeView: View {
  
 struct DetailedChallengeView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedChallengeView(myChall2: .constant(challenges[0])).environmentObject(GameSettings())
+        DetailedChallengeView(myChall2: .constant(challenges[0]))//.environmentObject(GameSettings())
     }
 }

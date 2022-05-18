@@ -9,13 +9,12 @@ import SwiftUI
 
 struct SuccessfulChallengeView_modal: View {
     
-    @EnvironmentObject var settings: GameSettings
+//    @EnvironmentObject var settings: GameSettings
     
     
     @Binding var closeSuccessfulChallengeView : Bool
     
     var body: some View {
-        NavigationView {
             ZStack{
                 Rectangle()
                     .foregroundColor(Color("cosmic-cobalt"))
@@ -43,7 +42,7 @@ struct SuccessfulChallengeView_modal: View {
                         .multilineTextAlignment(.center)
                         .padding(.top)
                         .frame(width: 270.0, height:60.0)
-                    Text("Tu remportes \(settings.score) points.")
+                    Text("Tu remportes 40 000 points.")
                         .foregroundColor(Color("cosmic-cobalt"))
                         .multilineTextAlignment(.center)
                         .frame(width: 270.0, height:50)
@@ -78,8 +77,8 @@ struct SuccessfulChallengeView_modal: View {
                 
                 
             }
-            .environmentObject(settings)
-        }
+//            .environmentObject(settings)
+        
         
     }
 }
@@ -93,6 +92,6 @@ struct SuccessfulChallengeView_modal: View {
 struct SuccessfulChallengeView_modal_Previews: PreviewProvider {
     static var previews: some View {
 
-        SuccessfulChallengeView_modal(closeSuccessfulChallengeView : .constant(true)).environmentObject(GameSettings())
+        SuccessfulChallengeView_modal(closeSuccessfulChallengeView : .constant(true))//.environmentObject(GameSettings())
     }
 }

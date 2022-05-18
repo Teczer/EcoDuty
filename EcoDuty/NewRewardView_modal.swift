@@ -54,23 +54,23 @@ struct RewardsModalStruct: View {
             } .padding(.bottom, 550)
             // Ensemble Text (Tu as atteint.. ---> [Nom du Badge] !
             VStack {
-                Text("Tu as atteint le niveau [\(RewardsLevel)] ")
+                Text("Tu as atteint le niveau 5 ")
                     .fontWeight(.bold)
                     .foregroundColor(Color("cosmic-cobalt"))
                     .font(.title2)
-            } .padding(.bottom, 170)
+            } .padding(.bottom, 280)
             
             VStack {
                 Spacer()
                     .frame(height: 90)
-                Text("Appuie sur le bouton ci-dessous pour récupérer ta récompense : [\(RewardsName)] !")
+                Text("Appuie sur le bouton ci-dessous pour récupérer le badge Eco Master ! Tu as aussi gagné une récompense que tu peux découvrir dans ta boîte mail")
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                    .frame(width: 288, height: 83)
+                    .frame(width: 288, height: 200)
                     .foregroundColor(Color("cosmic-cobalt"))
                 
                 
-            } .padding(.bottom, 120)
+            } .padding(.bottom, 185)
             // Bouton pour obtenir sa récompense avec changement d'état toggle()
             Button(action: {
             isChangingColor.toggle()
@@ -109,26 +109,14 @@ struct RewardsModalStruct: View {
                     Image(systemName: "shield.fill")
                         .font(.system(size: 60))
                         .foregroundColor(Color("yellow-pantone"))
-                } .padding(.top, 200)
+                } .padding(.top, 170)
             }
             // Encadrement Félicitations !
             VStack {
-                ZStack {
-                    Rectangle()
-                        .cornerRadius(20)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color(("cosmic-cobalt")), lineWidth: 4)
-                            
-                        )
-                        .foregroundColor(Color.white)
-                        .frame(width: 248.65, height: 54.48)
                     Text("Félicitations !")
                         .fontWeight(.bold)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .font(.largeTitle)
-                    
-                }
             } .padding(.bottom, 400)
         }
     }

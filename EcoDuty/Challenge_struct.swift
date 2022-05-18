@@ -42,7 +42,7 @@ let challenge2 = Challenge(challengeTitle: "Non à la pub !",
                            chalTagNature1 : "#nature",
                            chalTagNature2 : "",
                            chalTagNature3:"", challengePoints: 40000,
-                           challengeStatus: "Facile",
+                           challengeStatus: "★ ☆ ☆",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: true, mediumLevel: false, difficultLevel: false),
                            tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -54,7 +54,8 @@ let challenge3 = Challenge(challengeTitle: "Partage tes \npréoccupations",
                            chalTagNature1 : "#nature",
                            chalTagNature2 : "#déchets",
                            chalTagNature3:"",
-                           challengePoints: 80000, challengeStatus: "Moyen",
+                           challengePoints: 80000,
+                           challengeStatus: "★ ★ ☆",
                            prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: true, difficultLevel: false), tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
 let challenge4 = Challenge(challengeTitle: "Augmente la visibilité de tes prèoccupations.",
@@ -66,7 +67,7 @@ let challenge4 = Challenge(challengeTitle: "Augmente la visibilité de tes prèo
                            chalTagNature2 : "",
                            chalTagNature3:"",
                            challengePoints: 80000,
-                           challengeStatus: "Moyen",
+                           challengeStatus: "★ ★ ☆",
                            prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: true, difficultLevel: false), tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
 let challenge5 = Challenge(challengeTitle: "Avant/Après",
@@ -78,7 +79,7 @@ let challenge5 = Challenge(challengeTitle: "Avant/Après",
                            chalTagNature2 : "#déchets",
                            chalTagNature3: "",
                            challengePoints: 120000,
-                           challengeStatus: "Difficile",
+                           challengeStatus: "★ ★ ★",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: false, difficultLevel: true),
                            tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -91,7 +92,7 @@ let challenge6 = Challenge(challengeTitle: "Un dèchet par jour.",
                            chalTagNature2 : "#déchets",
                            chalTagNature3:"",
                            challengePoints: 40000,
-                           challengeStatus: "Facile",
+                           challengeStatus: "★ ☆ ☆",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: true, mediumLevel: false, difficultLevel: false),
                            tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -104,7 +105,7 @@ let challenge7 = Challenge(challengeTitle: "Remplis la bouteille",
                            chalTagNature2 : "#déchets",
                            chalTagNature3:"",
                            challengePoints: 80000,
-                           challengeStatus: "Moyen",
+                           challengeStatus: "★ ★ ☆",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: true, difficultLevel: false),
                            tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -117,7 +118,7 @@ let challenge8 = Challenge(challengeTitle: "Le pavé dans la mare",
                            chalTagNature2 : "",
                            chalTagNature3:"",
                            challengePoints: 80000,
-                           challengeStatus: "Moyen",
+                           challengeStatus: "★ ★ ☆",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: true, difficultLevel: false),
                            tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -130,7 +131,7 @@ let challenge9 = Challenge(challengeTitle: "Un refuge pour la \nbiodiversité",
                            chalTagNature2 : "#animaux",
                            chalTagNature3:"",
                            challengePoints: 80000,
-                           challengeStatus: "Moyen",
+                           challengeStatus: "★ ★ ☆",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: true, difficultLevel: false),
                            tags: Tag(waste: false, animals: true, manif: false, petition: false, food: false, nature: true))
  
@@ -142,7 +143,8 @@ let challenge10 = Challenge(challengeTitle: "Une oasis au mileu \ndu béton.",
                             chalTagNature1 : "#nature",
                             chalTagNature2 : "#animaux",
                             chalTagNature3:"",
-                            challengePoints: 120000, challengeStatus: "Difficile",
+                            challengePoints: 120000,
+                            challengeStatus: "★ ★ ★",
                             prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: false, difficultLevel: true),
                             tags: Tag(waste: false, animals: true, manif: false, petition: false, food: false, nature: true))
  
@@ -155,7 +157,7 @@ let challenge11 = Challenge(challengeTitle: "Que d'eau !",
                             chalTagNature2 : "",
                             chalTagNature3:"",
                             challengePoints: 120000,
-                            challengeStatus: "Difficile",
+                            challengeStatus: "★ ★ ★",
                             prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: false, difficultLevel: true), tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
 let challenge12 = Challenge(challengeTitle: "Allo? Allo!",
@@ -167,7 +169,7 @@ let challenge12 = Challenge(challengeTitle: "Allo? Allo!",
                             chalTagNature2 : "#déchets",
                             chalTagNature3:"",
                             challengePoints: 120000,
-                            challengeStatus: "Difficile",
+                            challengeStatus: "★ ★ ★",
                             prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: false, difficultLevel: true),
                             tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -179,7 +181,8 @@ let challenge13 = Challenge(challengeTitle: "Pas de toxiques dans tes déchets",
                             chalTagNature1 : "#nature",
                             chalTagNature2 : "#déchets",
                             chalTagNature3:"",
-                            challengePoints: 40000, challengeStatus: "Facile",
+                            challengePoints: 40000,
+                            challengeStatus: "★ ☆ ☆",
                             prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: true, mediumLevel: false, difficultLevel: false),
                             tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -192,7 +195,7 @@ let challenge14 = Challenge(challengeTitle: "Change ton café",
                             chalTagNature2 : "#déchets",
                             chalTagNature3:"",
                             challengePoints: 80000,
-                            challengeStatus: "Moyen",
+                            challengeStatus: "★ ★ ☆",
                             prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: true, difficultLevel: false),
                             tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -205,7 +208,7 @@ let challenge15 = Challenge(challengeTitle: "Change ton thé",
                             chalTagNature2 : "#déchets",
                             chalTagNature3:"",
                             challengePoints: 80000,
-                            challengeStatus: "Moyen",
+                            challengeStatus: "★ ★ ☆",
                             prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: true, difficultLevel: false),
                             tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -218,7 +221,7 @@ let challenge16 = Challenge(challengeTitle: "Vide ta corbeille",
                             chalTagNature2 : "",
                             chalTagNature3:"",
                             challengePoints: 80000,
-                            challengeStatus: "Facile",
+                            challengeStatus: "★ ☆ ☆",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: false, difficultLevel: false),
                             tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
                  
@@ -231,7 +234,7 @@ let challenge17 = Challenge(challengeTitle: "Le parrain des abeilles c'est toi!"
                             chalTagNature2 : "#animaux",
                             chalTagNature3:"",
                             challengePoints: 120000,
-                            challengeStatus: "Difficile",
+                            challengeStatus: "★ ★ ★",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: false, difficultLevel: true), tags: Tag(waste: false, animals: true, manif: false, petition: false, food: false, nature: true))
  
 let challenge18 = Challenge(challengeTitle: "Le parrain des abeilles c'est toi!",
@@ -242,7 +245,8 @@ let challenge18 = Challenge(challengeTitle: "Le parrain des abeilles c'est toi!"
                             chalTagNature1 : "#nature",
                             chalTagNature2 : "",
                             chalTagNature3:"",
-                            challengePoints: 120000, challengeStatus: "Difficile",
+                            challengePoints: 120000,
+                            challengeStatus: "★ ★ ★",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: false, difficultLevel: true),
                             tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
@@ -255,7 +259,7 @@ let challenge19 = Challenge(challengeTitle: "Le parrain des animaux c'est toi!",
                             chalTagNature2 : "#animaux",
                             chalTagNature3:"",
                             challengePoints: 120000,
-                            challengeStatus: "Difficile",
+                            challengeStatus: "★ ★ ★",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: true, mediumLevel: false, difficultLevel: true),
                             tags: Tag(waste: false, animals: true, manif: false, petition: false, food: false, nature: true))
  
@@ -268,7 +272,7 @@ let challenge20 = Challenge(challengeTitle: "Signer c'est s'engager",
                             chalTagNature2 : "#engagement",
                             chalTagNature3:"",
                             challengePoints: 80000,
-                            challengeStatus: "Moyen",
+                            challengeStatus: "★ ★ ☆",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: true, difficultLevel: false),
                             tags: Tag(waste: false, animals: false, manif: true, petition: false, food: false, nature: false))
  

@@ -12,7 +12,7 @@ struct ExtractComponents: View {
         ZStack  {
             Color("cosmic-cobalt")
                 .ignoresSafeArea()
-            ProgressionView()
+            Description()
         }
     }
 }
@@ -240,16 +240,16 @@ struct ProgressionView: View {
                         .padding(.bottom, 100)
                 )
                 .overlay(
-                    RectangleNiveau(userProgressionActualLevel: "3")
+                    RectangleNiveau(userProgressionActualLevel: "4")
                 )
                 .overlay(
-                    RectangleLevel2(userProgressionNextLevel: "4")
+                    RectangleLevel2(userProgressionNextLevel: "5")
                 )
                 .overlay(
                     VStack {
                         Spacer()
                             .frame(height: 40)
-                        ProgressView("Niveau Suivant", value: nextLevelAmount, total: 100)
+                        ProgressView("", value: 100, total: 100)
                             .frame(width: 130.0, height: 10.0)
                     }
                 )
@@ -354,6 +354,31 @@ struct BadgessCircle: View {
     }
 }
 
+struct BadgessCircleGray: View {
+    var badgeName: String
+    var body: some View {
+        
+        VStack {
+            Image(systemName: "shield.fill")
+                .font(.system(size: 50))
+                .foregroundColor(Color("maximum-blue-purple"))
+            
+            Rectangle()
+                .cornerRadius(15)
+                .background(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color("medium-slate-blue"), lineWidth: 3)
+                )
+                .foregroundColor(.white)
+                .frame(width: 100, height: 25)
+                .overlay(
+                    Text("\(badgeName)")
+                )
+        }
+    }
+}
+
+
 struct GroupBadgessCircle: View {
     var body: some View {
         VStack {
@@ -366,25 +391,25 @@ struct GroupBadgessCircle: View {
             HStack {
                 BadgessCircle(badgeName: "Eco Machin")
                     .padding(.trailing, 30)
-                BadgessCircle(badgeName: "Eco Pro")
+                BadgessCircle(badgeName: "Eco Def")
             }
             .padding()
             HStack {
-                BadgessCircle(badgeName: "Eco Master")
+                BadgessCircleGray(badgeName: "Eco Master")
                     .padding(.trailing, 30)
-                BadgessCircle(badgeName: "Eco Chall")
+                BadgessCircleGray(badgeName: "Eco Chall")
             }
             .padding()
             HStack {
-                BadgessCircle(badgeName: "Eco Onix")
+                BadgessCircleGray(badgeName: "Eco Onix")
                     .padding(.trailing, 30)
-                BadgessCircle(badgeName: "Eco Bouftou")
+                BadgessCircleGray(badgeName: "Eco Bouftou")
             }
             .padding()
             HStack {
-                BadgessCircle(badgeName: "Eco Kwak")
+                BadgessCircleGray(badgeName: "Eco Kwak")
                     .padding(.trailing, 30)
-                BadgessCircle(badgeName: "Eco Ultime")
+                BadgessCircleGray(badgeName: "Eco Ultime")
             }
             .padding()
         }

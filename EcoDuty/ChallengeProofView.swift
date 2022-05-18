@@ -13,7 +13,8 @@ import SwiftUI
 
 struct ChallengeProofView: View {
     
-    @EnvironmentObject var settings: GameSettings
+//    @EnvironmentObject var settings: GameSettings
+    @Binding var challengePointsAdditional : Challenge
     
     @State var imageFromImagePicker = UIImage(named : "image-challenge-proof-picker")!
     @State private var isShowingImagePicker = false
@@ -22,7 +23,6 @@ struct ChallengeProofView: View {
     
     var body: some View {
             
-        NavigationView {
             ZStack {
                     
                     Color("cosmic-cobalt") // N'a pas l'air de marcher sans le init plus haut
@@ -32,7 +32,7 @@ struct ChallengeProofView: View {
                         
                         // ÉLÉMENTS TEXTUELS : :
                         VStack (alignment : .leading, spacing : 20){
-                            Text("\(settings.score)")
+                            Text(challengePointsAdditional.challengeTitle)
                                 .font(.title)
                                 .fontWeight(.bold)
                             Text("Comment valider ce défi ?")
@@ -49,10 +49,10 @@ struct ChallengeProofView: View {
                                 .background(
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color(("medium-slate-blue")), lineWidth: 7)
-                                        .frame(height : 355)
+                                        .frame(height : 375)
                                 )
                                 .foregroundColor(Color.white)
-                            .frame(height: 350)
+                            .frame(height: 370)
                             
                             VStack (spacing : 20) {
                                 
@@ -70,7 +70,7 @@ struct ChallengeProofView: View {
                                 NavigationLink (destination: SuccessfulChallengeView_modal(closeSuccessfulChallengeView: $showSuccessfulChallengeView)) {
                                     Button(action : {
                                         showSuccessfulChallengeView.toggle()
-                                        settings.score+=1
+                                       // settings.score+=challengePointsAdditional.challengePoints
                                     }, label : {
                                         Text("Vérifier le défi")
                                             .fontWeight(.bold)
@@ -93,28 +93,7 @@ struct ChallengeProofView: View {
                     .padding()
                     .padding(.bottom)
                     
-                    // NAVBAR :
-    //                .toolbar {
-    //
-    //                    // Bouton retour :
-    //                    ToolbarItemGroup(placement : .navigationBarLeading) {
-    //                        Button(action : {
-    //                            hideKeyboard()
-    //                        }, label : {
-    //                            HStack {
-    //                                Image(systemName: "chevron.left")
-    //                                Text("Retour")
-    //                            } // Fin HStack visuel bouton retour
-    //                        }) // Fin bouton
-    //                    }
-    //
-    //                    // Petit titre de l'écran (plus simple pour changer sa couleur que le navigationTitle)
-    //                    ToolbarItemGroup(placement : .principal) {
-    //                        Text("Défi en cours")
-    //                            .fontWeight(.bold)
-    //                    }
-    //
-    //                }
+
                     
                 } // Fin ZStack
                 .foregroundColor(.white)
@@ -124,8 +103,8 @@ struct ChallengeProofView: View {
                     SuccessfulChallengeView_modal(closeSuccessfulChallengeView : $showSuccessfulChallengeView)
             })
             
-                .environmentObject(settings)
-        }
+//                .environmentObject(settings)
+        
             
         
     } // Fin body
@@ -134,6 +113,6 @@ struct ChallengeProofView: View {
 
 struct ChallengeProofView_Previews: PreviewProvider {
     static var previews: some View {
-        ChallengeProofView().environmentObject(GameSettings())
+        ChallengeProofView(challengePointsAdditional: .constant(challenges[0]))//.environmentObject(GameSettings())
     }
 }

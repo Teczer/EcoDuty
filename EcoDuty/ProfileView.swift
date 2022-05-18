@@ -27,7 +27,7 @@ struct ProfileView: View {
                                 HStack(spacing:10){
                                     
                                     
-                                    HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Aubervilliers", userLevelAndTitle: "Niveau 4: Eco Defender")
+                                    HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Île-de-France", userLevelAndTitle: "Niveau 4: Eco Defender")
                                 }
                             }
                             
