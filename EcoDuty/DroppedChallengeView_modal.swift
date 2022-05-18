@@ -37,7 +37,7 @@ struct DroppedChallengeView_modal: View {
                         .multilineTextAlignment(.center)
                     .frame(width: 270.0, height:70)
                 
-                  Text("La planète Terre peut encore être sauvée si tout le monde se mobilise. On compte sur toi, [titre associé au niveau] ! ")
+                  Text("La planète Terre peut encore être sauvée si tout le monde se mobilise. On compte sur toi Eco Defender ! ")
                 //ci dessus entre crochets interpolation a coder pour appeler le titre en relation avec le niveau de l'utilisateur
                     .foregroundColor(Color("cosmic-cobalt"))
                     .multilineTextAlignment(.center)

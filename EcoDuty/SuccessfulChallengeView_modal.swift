@@ -48,7 +48,7 @@ struct SuccessfulChallengeView_modal: View {
                         .frame(width: 270.0, height:50)
                     //interpolation necessaire pour appeller le nombre de points du defi
                     
-                    Text("Ton score s'élève maintenant à [nombre de points total] points :Bravo [titre associé au niveau] (niveau Y) !! La révolution verte est en marche ! ")
+                    Text("Ton score s'élève maintenant à : 40 000 points \nBravo Eco Defender ! \nLa révolution verte est en marche ! ")
                     //ci dessus entre crochets interpolation pour appeler le score mis a jour et le titre associé au niveau
                         .foregroundColor(Color("cosmic-cobalt"))
                         .multilineTextAlignment(.center)
