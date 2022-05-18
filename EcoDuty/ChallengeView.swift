@@ -7,6 +7,11 @@ struct ChallengeView: View {
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
     }
+    
+    
+    @EnvironmentObject var settings: GameSettings
+    
+    
     //array de Challenge -> boucle + filtre -> randomElement()
     //array.filter -> $0.preferences // $1.preferences
     @State private var challengePreference:Preferences = Preferences(irlMethod: false, onlineMethod: false, easyLevel: false, mediumLevel: false, difficultLevel: false)
@@ -217,6 +222,7 @@ struct ChallengeView: View {
                     )}
                 
             }
+            .environmentObject(settings)
         }
     }
     
@@ -236,7 +242,7 @@ struct ChallengeView: View {
     
     struct ChallengeView_Previews: PreviewProvider {
         static var previews: some View {
-            ChallengeView()
+            ChallengeView().environmentObject(GameSettings())
         }
     }
     

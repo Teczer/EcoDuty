@@ -13,6 +13,8 @@ import SwiftUI
 
 struct ChallengeProofView: View {
     
+    @EnvironmentObject var settings: GameSettings
+    
     @State var imageFromImagePicker = UIImage(named : "image-challenge-proof-picker")!
     @State private var isShowingImagePicker = false
     
@@ -20,105 +22,110 @@ struct ChallengeProofView: View {
     
     var body: some View {
             
+        NavigationView {
             ZStack {
-                
-                Color("cosmic-cobalt") // N'a pas l'air de marcher sans le init plus haut
-                    .ignoresSafeArea()
-                
-                VStack(spacing : 30) {
                     
-                    // ÉLÉMENTS TEXTUELS : :
-                    VStack (alignment : .leading, spacing : 20){
-                        Text("Titre du défi")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Text("Comment valider ce défi ?")
-                            .font(.title3)
-                        Text("""
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-    """)
-                    } // Fin VStack éléments textuels
+                    Color("cosmic-cobalt") // N'a pas l'air de marcher sans le init plus haut
+                        .ignoresSafeArea()
                     
-                    // ENCADRÉ BLANC :
-                    ZStack {
+                    VStack(spacing : 30) {
                         
-                        RoundedRectangle(cornerRadius: 10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color(("medium-slate-blue")), lineWidth: 7)
-                                    .frame(height : 355)
-                            )
-                            .foregroundColor(Color.white)
-                        .frame(height: 350)
+                        // ÉLÉMENTS TEXTUELS : :
+                        VStack (alignment : .leading, spacing : 20){
+                            Text("\(settings.score)")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            Text("Comment valider ce défi ?")
+                                .font(.title3)
+                            Text("""
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        """)
+                        } // Fin VStack éléments textuels
                         
-                        VStack (spacing : 20) {
+                        // ENCADRÉ BLANC :
+                        ZStack {
                             
-                            // Image de base de l'ImagePicker (avec mascotte et instructions)
-                            Image(uiImage : imageFromImagePicker)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 330, height: 250, alignment: .center)
-                                .clipShape(RoundedRectangle(cornerRadius : 10))
-                                .onTapGesture { isShowingImagePicker = true }
+                            RoundedRectangle(cornerRadius: 10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(("medium-slate-blue")), lineWidth: 7)
+                                        .frame(height : 355)
+                                )
+                                .foregroundColor(Color.white)
+                            .frame(height: 350)
                             
-                            //Spacer()
+                            VStack (spacing : 20) {
+                                
+                                // Image de base de l'ImagePicker (avec mascotte et instructions)
+                                Image(uiImage : imageFromImagePicker)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 330, height: 250, alignment: .center)
+                                    .clipShape(RoundedRectangle(cornerRadius : 10))
+                                    .onTapGesture { isShowingImagePicker = true }
+                                
+                                //Spacer()
+                                
+                                // Bouton "Valider le défi" :
+                                NavigationLink (destination: SuccessfulChallengeView_modal(closeSuccessfulChallengeView: $showSuccessfulChallengeView)) {
+                                    Button(action : {
+                                        showSuccessfulChallengeView.toggle()
+                                        settings.score+=1
+                                    }, label : {
+                                        Text("Vérifier le défi")
+                                            .fontWeight(.bold)
+                                            .frame(width : 180, height : 50)
+                                            .foregroundColor(.white)
+                                            .background(Color("cosmic-cobalt"))
+                                            .cornerRadius(10) // À confirmer
+                                    }) // Fin bouton "Valider le défi"
+                                    .padding(.bottom, 40)
+                                } // Fin NavigationLink
+                                
+                                //Spacer()
+                                
+                            } // Fin VStack correspondant à l'intérieur de l'encadré blanc
                             
-                            // Bouton "Valider le défi" :
-                            NavigationLink (destination: SuccessfulChallengeView_modal(closeSuccessfulChallengeView: $showSuccessfulChallengeView)) {
-                                Button(action : {
-                                    showSuccessfulChallengeView.toggle()
-                                }, label : {
-                                    Text("Vérifier le défi")
-                                        .fontWeight(.bold)
-                                        .frame(width : 180, height : 50)
-                                        .foregroundColor(.white)
-                                        .background(Color("cosmic-cobalt"))
-                                        .cornerRadius(10) // À confirmer
-                                }) // Fin bouton "Valider le défi"
-                                .padding(.bottom, 40)
-                            } // Fin NavigationLink
                             
-                            //Spacer()
-                            
-                        } // Fin VStack correspondant à l'intérieur de l'encadré blanc
+                        } // Fin ZStack bloc encadré blanc
                         
-                        
-                    } // Fin ZStack bloc encadré blanc
+                    } // Fin VStack
+                    .padding()
+                    .padding(.bottom)
                     
-                } // Fin VStack
-                .padding()
-                .padding(.bottom)
-                
-                // NAVBAR :
-//                .toolbar {
-//
-//                    // Bouton retour :
-//                    ToolbarItemGroup(placement : .navigationBarLeading) {
-//                        Button(action : {
-//                            hideKeyboard()
-//                        }, label : {
-//                            HStack {
-//                                Image(systemName: "chevron.left")
-//                                Text("Retour")
-//                            } // Fin HStack visuel bouton retour
-//                        }) // Fin bouton
-//                    }
-//
-//                    // Petit titre de l'écran (plus simple pour changer sa couleur que le navigationTitle)
-//                    ToolbarItemGroup(placement : .principal) {
-//                        Text("Défi en cours")
-//                            .fontWeight(.bold)
-//                    }
-//
-//                }
-                
-            } // Fin ZStack
-            .foregroundColor(.white)
-            .sheet(isPresented: $isShowingImagePicker, content: { ImagePicker(imageFromImagePicker : $imageFromImagePicker)
+                    // NAVBAR :
+    //                .toolbar {
+    //
+    //                    // Bouton retour :
+    //                    ToolbarItemGroup(placement : .navigationBarLeading) {
+    //                        Button(action : {
+    //                            hideKeyboard()
+    //                        }, label : {
+    //                            HStack {
+    //                                Image(systemName: "chevron.left")
+    //                                Text("Retour")
+    //                            } // Fin HStack visuel bouton retour
+    //                        }) // Fin bouton
+    //                    }
+    //
+    //                    // Petit titre de l'écran (plus simple pour changer sa couleur que le navigationTitle)
+    //                    ToolbarItemGroup(placement : .principal) {
+    //                        Text("Défi en cours")
+    //                            .fontWeight(.bold)
+    //                    }
+    //
+    //                }
+                    
+                } // Fin ZStack
+                .foregroundColor(.white)
+                .sheet(isPresented: $isShowingImagePicker, content: { ImagePicker(imageFromImagePicker : $imageFromImagePicker)
+                })
+                .sheet(isPresented: $showSuccessfulChallengeView, content: {
+                    SuccessfulChallengeView_modal(closeSuccessfulChallengeView : $showSuccessfulChallengeView)
             })
-            .sheet(isPresented: $showSuccessfulChallengeView, content: {
-                SuccessfulChallengeView_modal(closeSuccessfulChallengeView : $showSuccessfulChallengeView)
-            })
+            
+                .environmentObject(settings)
+        }
             
         
     } // Fin body
@@ -127,6 +134,6 @@ struct ChallengeProofView: View {
 
 struct ChallengeProofView_Previews: PreviewProvider {
     static var previews: some View {
-        ChallengeProofView()
+        ChallengeProofView().environmentObject(GameSettings())
     }
 }
