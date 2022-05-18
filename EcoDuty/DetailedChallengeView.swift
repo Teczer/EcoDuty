@@ -8,23 +8,23 @@
 import SwiftUI
  
 struct DetailedChallengeView: View {
+    
+    @State var openDroppedChallengeViewModal = false
+    
     @Binding var myChall2 : Challenge
     var body: some View {
         ZStack{
             Color("cosmic-cobalt")
                 .ignoresSafeArea()
             VStack(alignment: .leading){
-                Spacer()
-                HStack(spacing:70){
+               
                     Text(myChall2.challengeTitle)
                         .foregroundColor(.white)
                         .font(.title)
                         .fontWeight(.bold)
                         .padding([.top, .leading], 17.0)
                         .fixedSize()
-                            
-                    
-                    }
+                        
                 .padding([.bottom], 30.0)
                 
                 HStack(spacing: 20){
@@ -32,21 +32,21 @@ struct DetailedChallengeView: View {
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature1.isEmpty ? "Void" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature1.isEmpty ? "" : "yellow-pantone"))
                         .cornerRadius(20)
  
                     Text(myChall2.chalTagNature2)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature2.isEmpty ? "Void" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature2.isEmpty ? "" : "yellow-pantone"))
                         .cornerRadius(20)
                     
                     Text(myChall2.chalTagNature3)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature3.isEmpty ? "Void" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature3.isEmpty ? "" : "yellow-pantone"))
                         .cornerRadius(20)
                     
                 }
@@ -62,55 +62,69 @@ struct DetailedChallengeView: View {
                     Text(myChall2.challengeInOut)
                         .font(.title3)
                         .foregroundColor(.white)
+                        
                 }
+                .padding()
                 
                 Text(myChall2.challengeDescription)
-                
+                    
                     .padding()
                 
                 
                 
-                NavigationLink(destination: ChallengeProofView()) {
+                HStack(alignment: .center) {
+                    Spacer()
+                    NavigationLink(destination: ChallengeProofView()) {
+                        
+                        
+                        Text("Valider le défi")
+                            .font(.headline)
+                        
+                        
+                    } .frame(width: 185, height: 50, alignment: .center)
                     
-                    
-                    Text("Click ici une fois le défi terminé")
-                    
-                    
-                    
-                    
-                } .frame(width: 280, height: 50, alignment: .center)
-                
-                                .foregroundColor(Color("cosmic-cobalt"))
-                                .background(.white)
-                                .cornerRadius(5)
-                
-                                .padding(.bottom, 20)
-                
-                NavigationLink(destination: DroppedChallengeView_modal()) {
-                    RoundedRectangle(cornerRadius: 5)
-                        .frame(width: 280.0, height: 50.0)
-                        .background(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.white, lineWidth: 4)
-                        )
-                        .foregroundColor(Color("cosmic-cobalt"))
-                        .overlay(
-                            Text("Abandonner le défi")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                        )
-                    
-                } .frame(width: 285, height: 55, alignment: .center)
-                    .background(Color("cosmic-cobalt"))
-                    .cornerRadius(10)
+                                    .foregroundColor(Color("cosmic-cobalt"))
+                                    .background(.white)
+                                    .cornerRadius(10)
+                                    .padding([.bottom, .top], 15)
+                    Spacer()
+                }
+                                
+              
+                HStack(alignment: .center){
+                    Spacer()
+                    NavigationLink(destination: DroppedChallengeView_modal(closeDroppedChallengeView: $openDroppedChallengeViewModal)) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(width: 185.0, height: 50.0)
+                            .background(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color.white, lineWidth: 3)
+                            )
+                            .foregroundColor(Color("cosmic-cobalt"))
+                            .overlay(
+                                Text("Abandonner le défi")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .onTapGesture {
+                                        openDroppedChallengeViewModal.toggle()
+                                    }
+                            )
+                        
+                    } .frame(width: 190, height: 55, alignment: .center)
+                        .background(Color("cosmic-cobalt"))
+                        .cornerRadius(10)
+                    Spacer()
+                }
 
             }
-            
+            .padding([.horizontal])
             .foregroundColor(.white)
-            .frame(width: 300, alignment: .center)
+           
             
             }
-          
+        .sheet(isPresented: $openDroppedChallengeViewModal, content: {
+            DroppedChallengeView_modal(closeDroppedChallengeView:  $openDroppedChallengeViewModal)
+        })
         
         }
        

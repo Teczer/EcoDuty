@@ -1,13 +1,8 @@
-//
-//  DroppedChallengeView_modal.swift
-//  EcoDuty
-//
-//  Created by andré bonnot on 13/05/2022.
-//
-
 import SwiftUI
 
 struct DroppedChallengeView_modal: View {
+    
+    @Binding var closeDroppedChallengeView : Bool
     var body: some View {
        
         ZStack{
@@ -59,14 +54,12 @@ struct DroppedChallengeView_modal: View {
                     .foregroundColor(.white)
                     .background(Color("cosmic-cobalt"))
                     .cornerRadius(10
-                    )
-                    
-                
-            }
-                        
-                   
+                    ).onTapGesture {
+                        closeDroppedChallengeView.toggle()
+                    }
             }
                     
+            }
                 }
                }
             
@@ -82,6 +75,6 @@ struct DroppedChallengeView_modal: View {
 
 struct DroppedChallengeView_modal_Previews: PreviewProvider {
     static var previews: some View {
-        DroppedChallengeView_modal()
+        DroppedChallengeView_modal(closeDroppedChallengeView: .constant(false))
     }
 }
