@@ -37,7 +37,7 @@ struct NationalRankingView_option: View {
                 }
                 Spacer()
                     .frame(height: 10)
-                MyActualRank(userName: "Moi", userPoints: "298 100", userPosition: "711", userImage: "masque-8k")
+                MyActualRank(userName: "Teczer", userPoints: "1 917 281", userPosition: "6", userImage: "ArianaGrande")
             }
         }
     }

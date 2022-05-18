@@ -46,9 +46,10 @@ struct ChallengeProofView: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color(("medium-slate-blue")), lineWidth: 7)
+                                    .frame(height : 355)
                             )
                             .foregroundColor(Color.white)
-                        //.frame(width: 280, height: 200)
+                        .frame(height: 350)
                         
                         VStack (spacing : 20) {
                             
@@ -67,13 +68,14 @@ struct ChallengeProofView: View {
                                 Button(action : {
                                     showSuccessfulChallengeView.toggle()
                                 }, label : {
-                                    Text("Valider le défi")
+                                    Text("Vérifier le défi")
                                         .fontWeight(.bold)
                                         .frame(width : 180, height : 50)
                                         .foregroundColor(.white)
                                         .background(Color("cosmic-cobalt"))
                                         .cornerRadius(10) // À confirmer
                                 }) // Fin bouton "Valider le défi"
+                                .padding(.bottom, 40)
                             } // Fin NavigationLink
                             
                             //Spacer()
