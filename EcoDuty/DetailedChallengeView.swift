@@ -32,21 +32,21 @@ struct DetailedChallengeView: View {
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature1.isEmpty ? "" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature1.isEmpty ? "Void" : "yellow-pantone"))
                         .cornerRadius(20)
  
                     Text(myChall2.chalTagNature2)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature2.isEmpty ? "" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature2.isEmpty ? "Void" : "yellow-pantone"))
                         .cornerRadius(20)
                     
                     Text(myChall2.chalTagNature3)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature3.isEmpty ? "" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature3.isEmpty ? "Void" : "yellow-pantone"))
                         .cornerRadius(20)
                     
                 }
