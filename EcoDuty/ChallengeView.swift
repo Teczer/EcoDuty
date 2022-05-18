@@ -158,7 +158,7 @@ struct ChallengeView: View {
                     
                 } // Fin ZStack
                 
-                NavigationLink(destination: DetailedChallengeView() , isActive: $showDetails) { EmptyView() }
+                NavigationLink(destination: DetailedChallengeView(myChall2: $randomChal) , isActive: $showDetails) { EmptyView() }
             }
             
             .alert(isPresented: $showAlert) {

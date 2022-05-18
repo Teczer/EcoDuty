@@ -8,6 +8,7 @@
 import SwiftUI
  
 struct DetailedChallengeView: View {
+    @Binding var myChall2 : Challenge
     var body: some View {
         ZStack{
             Color("cosmic-cobalt")
@@ -15,7 +16,7 @@ struct DetailedChallengeView: View {
             VStack(alignment: .leading){
                 Spacer()
                 HStack(spacing:70){
-                    Text("Titre du défi")
+                    Text(myChall2.challengeTitle)
                         .foregroundColor(.white)
                         .font(.title)
                         .fontWeight(.bold)
@@ -27,19 +28,27 @@ struct DetailedChallengeView: View {
                 .padding([.bottom], 30.0)
                 
                 HStack(spacing: 20){
-                    Text("#animaux")
+                    Text(myChall2.chalTagNature1)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color("yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature1.isEmpty ? "" : "yellow-pantone"))
                         .cornerRadius(20)
  
-                    Text("#food")
+                    Text(myChall2.chalTagNature2)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color("yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature2.isEmpty ? "" : "yellow-pantone"))
                         .cornerRadius(20)
+                    
+                    Text(myChall2.chalTagNature3)
+                        .padding(10)
+                        .foregroundColor(Color("cosmic-cobalt"))
+                        .frame(height:30)
+                        .background(Color(myChall2.chalTagNature3.isEmpty ? "" : "yellow-pantone"))
+                        .cornerRadius(20)
+                    
                 }
                 .padding()
                 
@@ -50,17 +59,11 @@ struct DetailedChallengeView: View {
                         Image(systemName: "iphone")
                             .font(.system(size: 30))
                     }
-                    Text("En ligne")
+                    Text(myChall2.challengeInOut)
                         .font(.title3)
                         .foregroundColor(.white)
                 }
                 
-                Text("Sous-titre")
-                    .foregroundColor(.white)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding()
-                    
                 Text("Lorean ipsun dolor sit aneat, conseacteatur adipisci ealit, sead eaiusnod teanpor incidunt ut laborea eat dolorea nagna aliqua. Ut eanin ad ninin veanian, quis nostrun eaxearcitationean ullan corporis suscipit laboriosan, nisi ut aliquid eax eaa connodi conseaquatur. Quis autea iurea reapreaheandearit in voluptatea vealit eassea cillun dolorea eau fugiat nulla pariatur.")
                 
                     .padding()
@@ -116,6 +119,6 @@ struct DetailedChallengeView: View {
  
 struct DetailedChallengeView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedChallengeView()
+        DetailedChallengeView(myChall2: .constant(challenges[0]))
     }
 }

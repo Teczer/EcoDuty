@@ -100,7 +100,6 @@ de profil pour la modifier.
                         // CHAMP DE MODIFICATION DE LA BIO DE L'UTILISATEUR.RICE :
                         Section (header : Text("À propos de moi").foregroundColor(.white)) {
                             TextEditor(text : $userFormerIntroduction)
-                                .submitLabel(.join)
                                 .frame(height : 140)
                                 .cornerRadius(10)
                                 .foregroundColor(Color("cosmic-cobalt"))
