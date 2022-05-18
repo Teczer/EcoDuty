@@ -23,12 +23,12 @@ struct Challenge {
 let challenge1 = Challenge(challengeTitle: "Naviguer en accord avec \nla nature : EcoWeb",
                            challengeDescription: "Reduis ton empreinte carbone: utilise un moteur de recherche qui preserve la nature! \nPour valider ton défi fais une capture d'ecran de la validation de ton inscription",
                            challengeTitleDetail: "Ton défi",
-                           challengeInOut: "Depuis ton téléphone",
+                           challengeInOut: "En ligne",
                            chalTagNature1 : "Nature",
                            chalTagNature2 : "",
                            chalTagNature3:"",
                            challengePoints: 40000,
-                           challengeStatus: "Facile",
+                           challengeStatus: "★ ☆ ☆",
                            prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: true, mediumLevel: false, difficultLevel: false),
                            tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  

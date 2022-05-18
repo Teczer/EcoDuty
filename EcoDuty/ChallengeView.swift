@@ -64,6 +64,8 @@ struct ChallengeView: View {
                             Spacer()
                             Text(randomChal.challengeStatus
                             )
+                            .foregroundColor(Color("yellow-pantone"))
+                            .font(.title2)
                             .bold()
                             
                         }
