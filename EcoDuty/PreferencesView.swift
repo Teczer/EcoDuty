@@ -4,16 +4,25 @@
 //
 //  Created by Apprenant 63 on 11/05/2022.
 //
+// RESTE À FAIRE :
+//      Revoir trucs bizarres sur le Simulator (fond du forme et tout est très bas)
+//      Revoir le bouton "enregistrer"
+//      Transformer bouton "back" en "retour"
+//      Décider si on garde le jaune ou pas pour les tags (ou si on remet du blanc à la place)
+//      Modifier le nom des 2 variables en franglais plus bas
+//      Gestion des valeurs et du passage de données
+//      Enlever la NavigationView une fois le NavigationLink configuré avec la ChallengeView
+//      Nettoyer le code des commentaires inutiles à la fin
 
 import SwiftUI
 
 struct PreferencesView: View {
     
-    @State  var easy: Bool
-    @State  var medium: Bool
-    @State  var hard: Bool
-    @State  var inDoor: Bool
-    @State  var outDoor: Bool
+    @State var easy: Bool
+    @State var medium: Bool
+    @State var hard: Bool
+    @State var inDoor: Bool
+    @State var outDoor: Bool
     @State var tagAnimals = false
     @State var tagWaste = false
     @State var tagFood = false
@@ -22,9 +31,9 @@ struct PreferencesView: View {
     @Binding var chosenPreferences: Preferences
     @State private var showAlert = false
     @State private var changeColorAnimals = false
-    @State private var changeColorEngagement = false
+    @State private var changeColorEngagement = false // Changer nom variable car franglais ? Remplacer par changeColorCommitment ?
     @State private var changeColorNature = false
-    @State private var changeColorDéchets = false
+    @State private var changeColorDéchets = false // Changer nom variable car franglais ? Remplacer par changeColorWaste ?
     
     
     //@Binding var pref: Preference
@@ -34,175 +43,112 @@ struct PreferencesView: View {
             
             Color("cosmic-cobalt")
                 .ignoresSafeArea()
-            Form{
-                Section {
-                    VStack{
-                        Text("Personnalise tes défis!")
-                            .font(.headline)
-                            .padding()
-                        Text("Quels types de défis as-tu envie de relever ?")
-                            .font(.subheadline)
-                            .fixedSize()
-                            .foregroundColor(Color("medium-slate-blue"))
-                            .padding(7)
-                        Spacer()
-                    }
+            
+            VStack {
+                
+                VStack (alignment : .leading, spacing : 20) {
                     
+                    Text("Personnalise tes défis !")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text("""
+Quels types de défis as-tu envie de relever ?
+""")
+                    .font(.title3)
+                } // Fin VStack éléments textuels
+                .foregroundColor(.white)
+                .padding()
+                .offset(y : -40)
+                
+                
+                Form {
                     
-                    VStack(alignment: .leading){
+                    // SECTION NIVEAUX DE DIFFICULTÉ :
+                    Section (header : Text("Niveaux de difficulté").foregroundColor(.white)) {
                         
-                        Text("Difficulté")
-                        
-                        ExtractedViewDifficulty(howDifficult: $easy, image:"star.fill", text: "A good start!")
-                        ExtractedViewSecondDifficulty(howDifficult: $medium, image:"star.fill", text: "Try harder!")
-                        ExtractedViewThirdDifficulty(howDifficult: $hard, image:"star.fill", text: "No pain, no gain!")
-                        
-                    }
-                    .accentColor(.indigo)
-                    VStack(alignment:.leading){
-                        Text("Type")
-                        ExtractedViewDifficulty(howDifficult: $inDoor, image:"", text: "Depuis ton mobile 📞")
-                        ExtractedViewDifficulty(howDifficult: $outDoor, image:"", text: "Sur le terrain 🏄🏻‍♂️")
-                        
-                    }
-                    VStack {
-                        VStack {
-                        HStack {
-                            Button(action: {
-                                changeColorAnimals.toggle()
-                                
-                            }, label: {
-                                VStack {
-                                    ZStack {
-                                        Rectangle()
-                                            .frame(width: 100.0, height: 30.0)
-                                            .cornerRadius(20)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(Color(("cosmic-cobalt")), lineWidth: 4)
-                                                    .shadow(color: .black, radius: 3, x: 1, y: 5)
-                                            )
-                                            .foregroundColor(changeColorAnimals ? Color("cosmic-cobalt") : .white)
-                                        Text(changeColorAnimals ? "#animaux" : "#animaux")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(changeColorAnimals ? .white : Color("cosmic-cobalt"))
-                                        
-                                    }
-                                }
-                                
-                            })
-                            Spacer()
-                            Button(action: {
-                                changeColorEngagement.toggle()
-                                
-                            }, label: {
-                                VStack {
-                                    ZStack {
-                                        Rectangle()
-                                            .frame(width: 100.0, height: 30.0)
-                                            .cornerRadius(20)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(Color(("cosmic-cobalt")), lineWidth: 4)
-                                                    .shadow(color: .black, radius: 3, x: 1, y: 5)
-                                            )
-                                            .foregroundColor(changeColorEngagement ? Color("cosmic-cobalt") : .white)
-                                        Text(changeColorEngagement ? "#food" : "#food")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(changeColorEngagement ? .white : Color("cosmic-cobalt"))
-                                        
-                                    }
-                                }
-                                
-                            })
-                                                        
+                        VStack(alignment: .leading) {
                             
-                        }
+                            DifficultyLevelView (howDifficult: $easy, firstImageColor: Color("cosmic-cobalt"), secondImageColor: Color("maximum-blue-purple"), thirdImageColor: Color("maximum-blue-purple"), text: "Au calme")
+                            DifficultyLevelView (howDifficult: $medium, firstImageColor: Color("cosmic-cobalt"), secondImageColor: Color("cosmic-cobalt"), thirdImageColor: Color("maximum-blue-purple"), text: "En bonne voie")
+                            DifficultyLevelView(howDifficult: $hard, firstImageColor: Color("cosmic-cobalt"), secondImageColor: Color("cosmic-cobalt"), thirdImageColor: Color("cosmic-cobalt"), text: "Plus chaud que le climat")
+                            
+                            
+                        } // Fin VStack "Niveaux de difficulté"
+                    } // FIN SECTION NIVEAUX DE DIFFICULTÉ
+                    
+                    // SECTION MODES D'ACTION :
+                    Section (header : Text("Modes d'action").foregroundColor(.white)) {
+                        VStack(alignment:.leading) {
+                            ActionTypeView(toggleActionType: $inDoor, image: "iphone", text: "En ligne")
+                            ActionTypeView(toggleActionType: $outDoor, image: "figure.wave", text: "Sur le terrain")
+                        } // Fin VStack modes d'action
+                    } // FIN SECTION MODES D'ACTION
+                    
+                    // SECTION TAGS :
+                    Section (header : Text("Thématiques").foregroundColor(.white)) {
+                        
+                        VStack {
+                            
+                            // Première ligne de tags :
                             HStack {
-                            Button(action: {
-                                changeColorDéchets.toggle()
                                 
-                            }, label: {
-                                VStack {
-                                    ZStack {
-                                        Rectangle()
-                                            .frame(width: 100.0, height: 30.0)
-                                            .cornerRadius(20)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(Color(("cosmic-cobalt")), lineWidth: 4)
-                                                    .shadow(color: .black, radius: 3, x: 1, y: 5)
-                                            )
-                                            .foregroundColor(changeColorDéchets ? Color("cosmic-cobalt") : .white)
-                                        Text(changeColorDéchets ? "#déchets" : "#déchets")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(changeColorDéchets ? .white : Color("cosmic-cobalt"))
-                                        
-                                    }
-                                }
+                                // Tag "#animaux" :
+                                ExtractedTag(changeTagColor: $changeColorAnimals, tagLabel: "#animaux", tagFrameWidth: 100) // Fin bouton tag "#animaux"
                                 
-                            })
-                                Spacer()
-                                Button(action: {
-                                    changeColorNature.toggle()
-                                    
-                                }, label: {
-                                    VStack {
-                                        ZStack {
-                                            Rectangle()
-                                                .frame(width: 100.0, height: 30.0)
-                                                .cornerRadius(20)
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 20)
-                                                        .stroke(Color(("cosmic-cobalt")), lineWidth: 4)
-                                                        .shadow(color: .black, radius: 3, x: 1, y: 5)
-                                                )
-                                                .foregroundColor(changeColorNature ? Color("cosmic-cobalt") : .white)
-                                            Text(changeColorNature ? "#nature" : "#nature")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(changeColorNature ? .white : Color("cosmic-cobalt"))
-                                            
-                                        }
-                                    }
-                                    
-                                })
-                            }
-                        }
-                    }.buttonStyle(BorderedButtonStyle())
-                }
-            }
-            .background(Color("cosmic-cobalt"))
-            .onAppear { // ADD THESE
+                                // Tag "#engagement" :
+                                ExtractedTag(changeTagColor: $changeColorEngagement, tagLabel: "#engagement", tagFrameWidth: 130)
+                                
+                            } // Fin HStack première ligne tags
+                            
+                            // Deuxième ligne de tags :
+                            HStack {
+                                
+                                // Tag "#déchets" :
+                                ExtractedTag(changeTagColor: $changeColorDéchets, tagLabel: "#déchets", tagFrameWidth: 100)
+//
+                                
+                                // Tag "#nature" :
+                                ExtractedTag(changeTagColor: $changeColorNature, tagLabel: "#nature", tagFrameWidth: 90)
+                                
+                            } // Fin HStack seconde ligne de tags
+                        } // FIN VSTACK INTERNE SECTION TAGS
+                        //.buttonStyle(BorderedButtonStyle()) // Produit des zones grises bizarres derrière les tags
+                        .buttonStyle(.plain) // Disparition des zones grises bizarres et tout a l'air de fonctionner normalement !
+                        
+                    } // FIN SECTION TAGS
+                    .listRowBackground(Color("cosmic-cobalt")) // Permet de changer la couleur d'arrière-plan d'une ligne ou d'une section d'un Form (ou d'une List ?)
+                    
+                    
+                } // FIN FORM
+                .padding()
+                .offset(y : -50)
+                
+            } // FIN VSTACK PAGE
+            .onAppear {
                 UITableView.appearance().backgroundColor = .clear
             }
             .onDisappear {
                 UITableView.appearance().backgroundColor = .systemGroupedBackground
             }
+            .navigationBarItems(trailing: Button(action : {
+                showAlert = true
+                // Gérer le passage de données ici ?
+            }) {
+                Text("Enregistrer")
+            })
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Préférences enregistrées"),
+                    message: Text("")
+                )
+            }
             
-            
-            
-            
-            
-            
-        }
+        } // FIN ZSTACK
         
-        .navigationBarTitle("Préférences")
-        .navigationBarItems(trailing: Button(action: {
-            
-            showAlert = true
-            //pref = Preferences(irlMethod: false, onlineMethod: false, easyLevel: easy, mediumLevel: false, difficultLevel: false)
-            print("SF Symbol button pressed...")
-        }) {
-            Text("Enregistrer")
-        })
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Préférences enregistrées !"),
-                message: Text("")
-            )
-        }
-    }
-}
+    } // FIN BODY
+    
+} // FIN STRUCT
+
 
 
 struct PreferencesView_Previews: PreviewProvider {
@@ -212,143 +158,95 @@ struct PreferencesView_Previews: PreviewProvider {
 }
 
 
-
-struct ExtractedViewDifficulty: View {
+// Niveaux de difficulté :
+struct DifficultyLevelView : View {
     
-    @Binding var howDifficult:Bool
-    //    @Binding var inOn: Bool
-    var image:String
-    var text:String
+    @Binding var howDifficult : Bool
+    var firstImageColor : Color
+    var secondImageColor : Color
+    var thirdImageColor : Color
+    var text : String
     
     var body: some View {
         
-        HStack(spacing:30){
+        HStack (spacing : 20) {
             
             Toggle("", isOn: $howDifficult)
                 .labelsHidden()
                 .tint(Color("cosmic-cobalt"))
             
-            VStack(alignment:.leading){
-                HStack(alignment: .center, spacing: 10){
-                    
-                    Image(systemName: image)
-                        .foregroundColor(Color("cosmic-cobalt"))
-                    Image(systemName: image)
-                    Image(systemName: image)
+            VStack(alignment:.leading) {
+                
+                // HStack étoiles :
+                HStack {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(firstImageColor)
+                    Image(systemName: "star.fill")
+                        .foregroundColor(secondImageColor)
+                    Image(systemName: "star.fill")
+                        .foregroundColor(thirdImageColor)
                 }
                 
                 Text(text)
-                    .fixedSize()
+                    .foregroundColor(Color("cosmic-cobalt"))
+                    .font(.callout)
+                    //.fixedSize()
                 
-                
-                
-            }
-            
-            
-            
-        }
-        
-        
+            } // Fin VStack
+        } // Fin HStack ligne
     }
 }
 
-struct ExtractedViewSecondDifficulty: View {
+// Modes d'action :
+struct ActionTypeView : View {
     
-    @Binding var howDifficult:Bool
-    //    @Binding var inOn: Bool
-    var image:String
-    var text:String
+    @Binding var toggleActionType : Bool
+    var image : String
+    var text : String
+    
+    var body: some View {
+        HStack (spacing : 20) {
+            Toggle("", isOn: $toggleActionType)
+                .labelsHidden()
+                .tint(Color("cosmic-cobalt"))
+            Text(text)
+            Image(systemName : image)
+                .offset(x : -10)
+        }
+        .foregroundColor(Color("cosmic-cobalt"))
+    }
+    
+}
+
+// Tags thématiques :
+struct ExtractedTag: View {
+    
+    @Binding var changeTagColor : Bool
+    let tagLabel : String
+    let tagFrameWidth : Double
     
     var body: some View {
         
-        HStack(spacing:30){
-            
-            Toggle("", isOn: $howDifficult)
-                .labelsHidden()
-                .tint(Color("cosmic-cobalt"))
-            
-            VStack(alignment:.leading){
-                HStack(alignment: .center, spacing: 10){
-                    
-                    Image(systemName: image)
-                        .foregroundColor(Color("cosmic-cobalt"))
-                    Image(systemName: image)
-                        .foregroundColor(Color("cosmic-cobalt"))
-                    Image(systemName: image)
-                }
+        Button(
+            action: {changeTagColor.toggle()},
+            label: {
                 
-                Text(text)
-                    .fixedSize()
+                ZStack {
+                    Rectangle()
+                        .frame(width: tagFrameWidth, height: 30.0)
+                        .cornerRadius(20)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color(("yellow-pantone")), lineWidth: 3)
+                            //.shadow(color: .black, radius: 3, x: 1, y: 5)
+                        )
+                        .foregroundColor(changeTagColor ? Color("yellow-pantone") : Color("cosmic-cobalt"))
+                    Text(changeTagColor ? tagLabel : tagLabel)
+                        .foregroundColor(changeTagColor ? Color("cosmic-cobalt") : Color("yellow-pantone"))
+                    // VOIR SI ON MET DU BLANC À LA PLACE DU YELLOW PANTONE POUR LES TAGS
+                } // Fin ZStack
                 
-                
-                
-            }
-            
-            
-            
-        }
-        
-        
+            }) // Fin bouton tag
     }
 }
 
-struct ExtractedViewThirdDifficulty: View {
-    
-    @Binding var howDifficult:Bool
-    //    @Binding var inOn: Bool
-    var image:String
-    var text:String
-    
-    var body: some View {
-        
-        HStack(spacing:30){
-            
-            Toggle("", isOn: $howDifficult)
-                .labelsHidden()
-                .tint(Color("cosmic-cobalt"))
-            
-            VStack(alignment:.leading){
-                HStack(alignment: .center, spacing: 10){
-                    
-                    Image(systemName: image)
-                        .foregroundColor(Color("cosmic-cobalt"))
-                    Image(systemName: image)
-                        .foregroundColor(Color("cosmic-cobalt"))
-                    Image(systemName: image)
-                        .foregroundColor(Color("cosmic-cobalt"))
-                }
-                
-                Text(text)
-                    .fixedSize()
-            }
-        }
-    }
-}
-
-//struct BoutonTag: View {
-//    @State private var changeCouleur = false
-//    var body: some View {
-//        Button(action: {
-//            changeCouleur.toggle()
-//
-//        }, label: {
-//            VStack {
-//                ZStack {
-//                    Rectangle()
-//                        .frame(width: 100.0, height: 30.0)
-//                        .cornerRadius(20)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 20)
-//                                .stroke(Color(("cosmic-cobalt")), lineWidth: 4)
-//                                .shadow(color: .black, radius: 3, x: 1, y: 5)
-//                        )
-//                        .foregroundColor(changeCouleur ? Color("cosmic-cobalt") : .white)
-//                    Text(changeCouleur ? "#animaux" : "#animaux")
-//                        .fontWeight(.bold)
-//                        .foregroundColor(changeCouleur ? .white : Color("cosmic-cobalt"))
-//
-//                }
-//            } .padding(.top, 30)
-//        })
-//    }
-//}

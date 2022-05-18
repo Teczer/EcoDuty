@@ -32,9 +32,12 @@ struct ChallengeView: View {
     @State private var chosenChalText = challenges[0].challengeDescription
     @State private var challengeLevel = challenges[0].challengeStatus
     @State private var challengeInOut = challenges[0].challengeInOut
+    
     var body: some View {
+        
         NavigationView{
-            VStack(alignment: .leading){
+            
+            VStack(alignment: .leading) {
                 
                 //                Text(pref.difficultLevel.description)
                 
@@ -45,14 +48,16 @@ struct ChallengeView: View {
                     .padding([.top,.leading], 30.0)
                     .foregroundColor(Color("cosmic-cobalt"))
                 
-                Text("Dépêche-toi! \nIl est urgent d'agir!")
+                Text("Dépêche-toi ! \nIl est urgent d'agir !")
                 
                     .font(.title3)
                     .fixedSize()
-                    .foregroundColor(Color("medium-slate-blue"))
+                    .foregroundColor(Color("cosmic-cobalt"))
                     .padding([.top,.leading], 30)
                 
-                ZStack{
+                Spacer()
+                
+                ZStack {
                     
                     Rectangle()
                         .foregroundColor(Color("cosmic-cobalt"))
@@ -83,7 +88,7 @@ struct ChallengeView: View {
                             .frame(width: 280, alignment:.center)
                         
                         // if string id not empty {backghround color yellow}
-                        HStack(spacing: 20){
+                        HStack(spacing: 20) {
                             Text(randomChal.chalTagNature1)
                                 .padding(10)
                                 .foregroundColor(Color("cosmic-cobalt"))
@@ -109,48 +114,49 @@ struct ChallengeView: View {
                             Spacer()
                             
                         }
-                        
                         .padding(30)
                         
-                        Button {
-                            showAlert = true
-                        } label: {
-                            Text("Je choisis ce défi !")
-                        }
-                        
-                        .frame(width: 280, height: 50, alignment: .center)
-                        .foregroundColor(Color("cosmic-cobalt"))
-                        .background(.white)
-                        .cornerRadius(10)
-                        .padding()
-                        
-                        Button {
-                            randomise()
-                        } label: {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 280.0, height: 50.0)
+                        HStack (spacing : 25) {
+                            Button {
+                                showAlert = true
+                            } label: {
+                                Text("Je me lance !")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                            }
                             
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.white, lineWidth: 4)
-                                )
-                                .foregroundColor(Color("cosmic-cobalt"))
-                                .overlay(
-                                    Text("Un autre défi ?")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                )
+                            .frame(width: 150, height: 50, alignment: .center)
+                            .foregroundColor(Color("cosmic-cobalt"))
+                            .background(.white)
+                            .cornerRadius(10)
+                            
+                            Button {
+                                randomise()
+                            } label: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 150, height: 50)
+                                
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.white, lineWidth: 3)
+                                    )
+                                    .foregroundColor(Color("cosmic-cobalt"))
+                                    .overlay(
+                                        Text("Un autre défi ?")
+                                            .font(.headline)
+                                            .fontWeight(.bold)
+                                    )
+                            }
+                            .frame(width: 155, height: 55, alignment: .center)
+                            .background(Color("cosmic-cobalt"))
+                            .cornerRadius(10)
+                            
                         }
-                        .frame(width: 285, height: 55, alignment: .center)
-                        .background(Color("cosmic-cobalt"))
-                        .cornerRadius(10)
-                        
                     }
                     .foregroundColor(.white)
-                    
                     .padding()
                     
-                }
+                } // Fin ZStack
                 
                 NavigationLink(destination: DetailedChallengeView() , isActive: $showDetails) { EmptyView() }
             }
@@ -181,14 +187,13 @@ struct ChallengeView: View {
                 ToolbarItemGroup(placement : .principal) {
                     Text("Ton défi")
                         .foregroundColor(Color("cosmic-cobalt"))
-                        .font(.title2)
                         .fontWeight(.bold)
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     NavigationLink(destination: PreferencesView(easy: false, medium: false, hard: false, inDoor: false, outDoor: false, tagAnimals: false, tagWaste: false, tagFood: false, tagNature: false, tagManif: false, chosenPreferences: $pref), label: ({
                         
-                        Text("Préferénces")
+                        Text("Préférences")
                             .foregroundColor(Color("cosmic-cobalt"))
                         
                     })
