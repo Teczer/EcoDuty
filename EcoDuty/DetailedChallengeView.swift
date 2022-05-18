@@ -62,6 +62,12 @@ struct DetailedChallengeView: View {
                     Text(myChall2.challengeInOut)
                         .font(.title3)
                         .foregroundColor(.white)
+                    Spacer()
+                    Text(myChall2.challengeStatus
+                    )
+                    .foregroundColor(Color("yellow-pantone"))
+                    .font(.title2)
+                    .bold()
                         
                 }
                 .padding()
@@ -95,9 +101,9 @@ struct DetailedChallengeView: View {
                     Spacer()
                     NavigationLink(destination: DroppedChallengeView_modal(closeDroppedChallengeView: $openDroppedChallengeViewModal)) {
                         RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 185.0, height: 50.0)
+                            .frame(width: 182, height: 47)
                             .background(
-                                RoundedRectangle(cornerRadius: 5)
+                                RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.white, lineWidth: 3)
                             )
                             .foregroundColor(Color("cosmic-cobalt"))
