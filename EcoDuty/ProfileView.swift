@@ -22,28 +22,23 @@ struct ProfileView: View {
                     .ignoresSafeArea()
                 ScrollView{
                     
-                    
-                    VStack{
-                        VStack{
-                            Text("____________________________________")
-                                .foregroundColor(Color("maximum-blue-purple"))
-                            HStack(spacing:10){
-                                
-                                
-                                HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Aubervilliers", userLevelAndTitle: "Niveau 4: Eco Defender")
-                                
+                    VStack(spacing:-35){
+                            VStack {
+                                HStack(spacing:10){
+                                    
+                                    
+                                    HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Aubervilliers", userLevelAndTitle: "Niveau 4: Eco Defender")
+                                }
                             }
+                            
                             VStack{
-                                Text("____________________________________")
-                                    .foregroundColor(Color("maximum-blue-purple"))
                                 Description()
-                                Spacer()
                                 ProgressionView()
+                                    .padding()
                                 BadgessView()
                             }
                             
                         }
-                    }
                     .navigationBarTitle("Profil", displayMode: .inline
                     )
                     .navigationBarItems(trailing:

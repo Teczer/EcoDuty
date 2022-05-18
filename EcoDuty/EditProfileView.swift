@@ -67,6 +67,7 @@ struct EditProfileView: View {
                         
                         VStack (alignment : .leading, spacing : 20) {
                             Text(userName)
+                                .foregroundColor(Color("yellow-pantone"))
                                 .font(.title)
                                 .fontWeight(.bold)
                             Text("""
@@ -99,34 +100,75 @@ de profil pour la modifier.
                         // CHAMP DE MODIFICATION DE LA BIO DE L'UTILISATEUR.RICE :
                         Section (header : Text("À propos de moi").foregroundColor(.white)) {
                             TextEditor(text : $userFormerIntroduction)
+                                .submitLabel(.join)
                                 .frame(height : 140)
                                 .cornerRadius(10)
                                 .foregroundColor(Color("cosmic-cobalt"))
+                                .onChange(of: userFormerIntroduction, perform: { formerBio in
+                                        numberCharactersInIntroduction = formerBio.count
+                                        if numberCharactersInIntroduction <= maxCharactersInIntroduction {
+                                            userNewIntroduction = formerBio
+                                        } else {
+                                            self.userFormerIntroduction = userNewIntroduction
+                                        }
+                                    })
+                                .overlay(
+                                    Text("\(numberCharactersInIntroduction)/\(maxCharactersInIntroduction)")
+                                        .font(.caption2)
+                                        .offset(x: 130, y: 60)
+                                        .foregroundColor(Color("cosmic-cobalt"))
+                                )
+                             // overlay & onChange pour intégrer la limite en termes de nombre de caractères directement par-dessus le TextEditor
+                                
+                            // Intégrer .onSubmit pour faire redescendre le clavier
+                            
                         }
                         // FIN SECTION BIO
+                        
+                        Section {
+                            VStack {
+                                Button(action : { // Revoir l'action du bouton pour qu'il soit le bouton de sauvegarde de l'ensemble des modifications de la page.
+                                    userNewIntroduction = userFormerIntroduction // userNewIntroduction sera la valeur à "renvoyer" vers la page de profil.
+                                    showProfileSavedAlert.toggle() // Indispensable pour que l'alerte plus bas se déclenche
+                                }, label : {
+                                    Text("Sauvegarder")
+                                        .fontWeight(.bold)
+                                        .frame(width : 180, height : 50)
+                                        .foregroundColor(Color("cosmic-cobalt"))
+                                        .background(Color("yellow-pantone"))
+                                        .cornerRadius(10) // À confirmer
+                                }) // Fin bouton de sauvegarde de la bio
+                                .alert(isPresented : $showProfileSavedAlert, content : {
+                                    getAlert()
+                            })
+                            }
+                        }
+                        .listRowBackground(Color("cosmic-cobalt"))
                         
                     } // FIN FORM
                     .padding()
                     
-                    // Limite nombre de catactères pour la bio :
-                    ProgressBarCharactersLimit(formerText: $userFormerIntroduction, newText: $userNewIntroduction, numberCharacters: $numberCharactersInIntroduction, charactersLimit: maxCharactersInIntroduction)
+//                    // Limite nombre de catactères pour la bio :
+//                    ProgressBarCharactersLimit(formerText: $userFormerIntroduction, newText: $userNewIntroduction, numberCharacters: $numberCharactersInIntroduction, charactersLimit: maxCharactersInIntroduction)
+//
+//
+//                    // Bouton "Sauvegarder" :
+//                    Button(action : { // Revoir l'action du bouton pour qu'il soit le bouton de sauvegarde de l'ensemble des modifications de la page.
+//                        userNewIntroduction = userFormerIntroduction // userNewIntroduction sera la valeur à "renvoyer" vers la page de profil.
+//                        showProfileSavedAlert.toggle() // Indispensable pour que l'alerte plus bas se déclenche
+//                    }, label : {
+//                        Text("Sauvegarder")
+//                            .fontWeight(.bold)
+//                            .frame(width : 180, height : 50)
+//                            .foregroundColor(Color("cosmic-cobalt"))
+//                            .background(Color("yellow-pantone"))
+//                            .cornerRadius(10) // À confirmer
+//                    }) // Fin bouton de sauvegarde de la bio
+//                    .alert(isPresented : $showProfileSavedAlert, content : {
+//                        getAlert()
+//                    })
                     
-                    // Bouton "Sauvegarder" :
-                    Button(action : { // Revoir l'action du bouton pour qu'il soit le bouton de sauvegarde de l'ensemble des modifications de la page.
-                        userNewIntroduction = userFormerIntroduction // userNewIntroduction sera la valeur à "renvoyer" vers la page de profil.
-                        showProfileSavedAlert.toggle() // Indispensable pour que l'alerte plus bas se déclenche
-                    }, label : {
-                        Text("Sauvegarder")
-                            .fontWeight(.bold)
-                            .frame(width : 180, height : 50)
-                            .foregroundColor(Color("cosmic-cobalt"))
-                            .background(.white)
-                            .cornerRadius(10) // À confirmer
-                            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10) // Voir si on conserve l'ombre ou pas (et être homogène sur les boutons de l'app autant que possible)
-                    }) // Fin bouton de sauvegarde de la bio
-                    .alert(isPresented : $showProfileSavedAlert, content : {
-                        getAlert()
-                    })
+                    Spacer()
                     
                 } // Fin VStack
                 
@@ -140,14 +182,14 @@ de profil pour la modifier.
                             .fontWeight(.bold)
                     }
                     
-                    // Bouton pour cacher le clavier (en cas de bug avec le clavier qui ne redescend pas automatiquement) :
-//                    ToolbarItemGroup(placement : .navigationBarTrailing) {
-//                        Button(action : {
-//                            hideKeyboard()
-//                        }, label : {
-//                            Label("Cacher le clavier", systemImage: "keyboard.chevron.compact.down")
-//                        }) // Fin bouton
-//                    }
+                     // Bouton pour cacher le clavier (en cas de bug avec le clavier qui ne redescend pas automatiquement) :
+                    ToolbarItemGroup(placement : .navigationBarTrailing) {
+                        Button(action : {
+                            hideKeyboard()
+                        }, label : {
+                            Label("Cacher le clavier", systemImage: "keyboard.chevron.compact.down")
+                        }) // Fin bouton
+                    }
                     
                 } // FIN TOOLBAR/NAVBAR
                 

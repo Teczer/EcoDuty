@@ -47,11 +47,11 @@ struct RewardsModalStruct: View {
             // Snappy en haut à gauche
                 VStack {
                     HStack {
-                        Image("MascotHappyFaceCropped")
+                        Image("MascotHappyFaceCroppedRewardModal")
                         Spacer()
                             .frame(width: 220)
                     }
-            } .padding(.bottom, 515)
+            } .padding(.bottom, 550)
             // Ensemble Text (Tu as atteint.. ---> [Nom du Badge] !
             VStack {
                 Text("Tu as atteint le niveau [\(RewardsLevel)] ")
@@ -83,8 +83,6 @@ struct RewardsModalStruct: View {
                         .background(
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color(("cosmic-cobalt")), lineWidth: 4)
-                                .shadow(color: .black, radius: 3, x: 1, y: 5)
-                            
                         )
                         .foregroundColor(isChangingColor ? Color("cosmic-cobalt") : .white)
                         .frame(width: 290.26, height: 60.43)
@@ -125,14 +123,13 @@ struct RewardsModalStruct: View {
                         )
                         .foregroundColor(Color.white)
                         .frame(width: 248.65, height: 54.48)
-                        .shadow(radius: 10)
                     Text("Félicitations !")
                         .fontWeight(.bold)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .font(.largeTitle)
                     
                 }
-            } .padding(.bottom, 320)
+            } .padding(.bottom, 400)
         }
     }
 }

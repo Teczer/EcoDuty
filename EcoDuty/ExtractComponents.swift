@@ -12,7 +12,7 @@ struct ExtractComponents: View {
         ZStack  {
             Color("cosmic-cobalt")
                 .ignoresSafeArea()
-            BadgessView()
+            ProgressionView()
         }
     }
 }
@@ -225,9 +225,9 @@ struct ProgressionView: View {
     @State private var nextLevelAmount = 0.0
     var body: some View {
         ZStack{
-            Rectangle()
+            RoundedRectangle(cornerRadius: 10)
                 .background(
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(("medium-slate-blue")), lineWidth: 10)
                 )
                 .frame(width:300, height: 150)
@@ -306,9 +306,9 @@ struct RectangleLevel2: View {
 struct BadgessView: View {
     var body: some View {
         ZStack{
-            Rectangle()
+            RoundedRectangle(cornerRadius: 10)
                 .background(
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(("medium-slate-blue")), lineWidth: 10)
                 )
                 .foregroundColor(.white)
@@ -321,7 +321,10 @@ struct BadgessView: View {
                         .padding(.bottom, 630)
                 )
                 .overlay(
-                    GroupBadgessCircle()
+                    VStack {
+                        
+                        GroupBadgessCircle()
+                    } .padding(.top, 30)
                 )
         }
     }
@@ -332,19 +335,10 @@ struct BadgessCircle: View {
     var body: some View {
         
         VStack {
-            Circle()
-                .background(
-                    Circle()
-                        .stroke(Color(("cosmic-cobalt")), lineWidth: 2)
-                )
-                .foregroundColor(Color.white)
-                .frame(width: 63.07, height: 63.33)
-                .shadow(radius: 3)
-                .overlay(
-                    Image(systemName: "shield.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(Color("yellow-pantone"))
-            )
+            Image(systemName: "shield.fill")
+                .font(.system(size: 50))
+                .foregroundColor(Color("yellow-pantone"))
+            
             Rectangle()
                 .cornerRadius(15)
                 .background(
@@ -354,7 +348,7 @@ struct BadgessCircle: View {
                 .foregroundColor(.white)
                 .frame(width: 100, height: 25)
                 .overlay(
-                Text("\(badgeName)")
+                    Text("\(badgeName)")
                 )
         }
     }
@@ -363,27 +357,36 @@ struct BadgessCircle: View {
 struct GroupBadgessCircle: View {
     var body: some View {
         VStack {
-            
             HStack {
                 BadgessCircle(badgeName: "Eco Friend")
+                    .padding(.trailing, 30)
                 BadgessCircle(badgeName: "Eco Angel")
             }
+            .padding()
             HStack {
                 BadgessCircle(badgeName: "Eco Machin")
+                    .padding(.trailing, 30)
                 BadgessCircle(badgeName: "Eco Pro")
             }
+            .padding()
             HStack {
                 BadgessCircle(badgeName: "Eco Master")
+                    .padding(.trailing, 30)
                 BadgessCircle(badgeName: "Eco Chall")
             }
+            .padding()
             HStack {
                 BadgessCircle(badgeName: "Eco Onix")
+                    .padding(.trailing, 30)
                 BadgessCircle(badgeName: "Eco Bouftou")
             }
+            .padding()
             HStack {
                 BadgessCircle(badgeName: "Eco Kwak")
+                    .padding(.trailing, 30)
                 BadgessCircle(badgeName: "Eco Ultime")
             }
+            .padding()
         }
     }
 }
@@ -410,6 +413,7 @@ struct HeadLineProfile: View {
             }
             VStack(alignment:.leading){
                 Text("\(userName)")
+                    .foregroundColor(Color("yellow-pantone"))
                     .font(.title)
                     .bold()
                 Text("\(userGenreAndAge)")
@@ -430,9 +434,9 @@ struct HeadLineProfile: View {
 struct Description: View {
     var body: some View {
         Group {
-            Text("A propos de moi")
+            Text("À propos de moi")
                 .font(.title3)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color("yellow-pantone"))
                 .bold()
                 .padding()
             Text("Bonjour lala dolor sit aneat, conseacteatur adipisci ealit, sead eaiusnod teanpor incidunt ut laborea eat dolorea nagna aliqua. Ut eanin ad ninin veanian, quis nostrun eaxearcitationean ullan corporis suscipit laboriosan, nisi ut aliquid eax eaa connodi conseaquatur. Quis autea iurea reapreaheandearit in voluptatea vealit eassea cillun dolorea eau fugiat nulla pariatur.")
