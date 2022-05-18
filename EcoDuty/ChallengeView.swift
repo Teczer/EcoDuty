@@ -237,7 +237,7 @@ struct ChallengeView: View {
         
     }
     
-    
+        
     
     
     struct ChallengeView_Previews: PreviewProvider {
