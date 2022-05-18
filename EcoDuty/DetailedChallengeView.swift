@@ -32,21 +32,21 @@ struct DetailedChallengeView: View {
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature1.isEmpty ? "" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature1.isEmpty ? "Void" : "yellow-pantone"))
                         .cornerRadius(20)
  
                     Text(myChall2.chalTagNature2)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature2.isEmpty ? "" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature2.isEmpty ? "Void" : "yellow-pantone"))
                         .cornerRadius(20)
                     
                     Text(myChall2.chalTagNature3)
                         .padding(10)
                         .foregroundColor(Color("cosmic-cobalt"))
                         .frame(height:30)
-                        .background(Color(myChall2.chalTagNature3.isEmpty ? "" : "yellow-pantone"))
+                        .background(Color(myChall2.chalTagNature3.isEmpty ? "Void" : "yellow-pantone"))
                         .cornerRadius(20)
                     
                 }
@@ -64,7 +64,7 @@ struct DetailedChallengeView: View {
                         .foregroundColor(.white)
                 }
                 
-                Text("Lorean ipsun dolor sit aneat, conseacteatur adipisci ealit, sead eaiusnod teanpor incidunt ut laborea eat dolorea nagna aliqua. Ut eanin ad ninin veanian, quis nostrun eaxearcitationean ullan corporis suscipit laboriosan, nisi ut aliquid eax eaa connodi conseaquatur. Quis autea iurea reapreaheandearit in voluptatea vealit eassea cillun dolorea eau fugiat nulla pariatur.")
+                Text(myChall2.challengeDescription)
                 
                     .padding()
                 

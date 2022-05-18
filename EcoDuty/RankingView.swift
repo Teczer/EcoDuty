@@ -9,6 +9,10 @@ import SwiftUI
 
 struct RankingView: View {
     init() {
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().tintColor = UIColor.white
         UISegmentedControl.appearance().selectedSegmentTintColor = .white
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(named: "cosmic-cobalt") ?? .purple], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
@@ -43,15 +47,11 @@ struct RankingView: View {
             }
             VStack {
                 Text("Classement")
-                    .font(.title3)
-                    .fontWeight(.bold)
+//                    .font(.custom("", size: 18))
+                    .bold()
                     .foregroundColor(Color.white)
-                Rectangle()
-                    .frame(width: 375, height: 1)
-                    .background(Color.white)
-                    .foregroundColor(Color.white)
-                Spacer()
-                    .frame(height: 620)
+                    Spacer()
+                    .frame(height: 670)
             }
         }
         

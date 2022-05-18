@@ -6,7 +6,7 @@
 //
 // RESTE À FAIRE :
 //      Gestion des valeurs (données défi & passage de données vers le profil pour les points notamment)
-//      Enlever la NavigationView une fois le NavigationLink configuré avec la DetailedChallengeView
+//      Vérifier la navigation
 //      Nettoyer le code des commentaires inutiles à la fin
 
 import SwiftUI
@@ -19,8 +19,6 @@ struct ChallengeProofView: View {
     @State var showSuccessfulChallengeView = false
     
     var body: some View {
-        
-        NavigationView {
             
             ZStack {
                 
@@ -32,9 +30,10 @@ struct ChallengeProofView: View {
                     // ÉLÉMENTS TEXTUELS : :
                     VStack (alignment : .leading, spacing : 20){
                         Text("Titre du défi")
-                            .font(.largeTitle)
+                            .font(.title)
+                            .fontWeight(.bold)
                         Text("Comment valider ce défi ?")
-                            .font(.title2)
+                            .font(.title3)
                         Text("""
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
     """)
@@ -51,17 +50,17 @@ struct ChallengeProofView: View {
                             .foregroundColor(Color.white)
                         //.frame(width: 280, height: 200)
                         
-                        VStack {
+                        VStack (spacing : 20) {
                             
                             // Image de base de l'ImagePicker (avec mascotte et instructions)
                             Image(uiImage : imageFromImagePicker)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 250, height: 250, alignment: .center)
+                                .frame(width: 330, height: 250, alignment: .center)
                                 .clipShape(RoundedRectangle(cornerRadius : 10))
                                 .onTapGesture { isShowingImagePicker = true }
                             
-                            Spacer()
+                            //Spacer()
                             
                             // Bouton "Valider le défi" :
                             NavigationLink (destination: SuccessfulChallengeView_modal(closeSuccessfulChallengeView: $showSuccessfulChallengeView)) {
@@ -74,11 +73,10 @@ struct ChallengeProofView: View {
                                         .foregroundColor(.white)
                                         .background(Color("cosmic-cobalt"))
                                         .cornerRadius(10) // À confirmer
-                                        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
                                 }) // Fin bouton "Valider le défi"
                             } // Fin NavigationLink
                             
-                            Spacer()
+                            //Spacer()
                             
                         } // Fin VStack correspondant à l'intérieur de l'encadré blanc
                         
@@ -90,27 +88,27 @@ struct ChallengeProofView: View {
                 .padding(.bottom)
                 
                 // NAVBAR :
-                .toolbar {
-                    
-                    // Bouton retour :
-                    ToolbarItemGroup(placement : .navigationBarLeading) {
-                        Button(action : {
-                            hideKeyboard()
-                        }, label : {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                Text("Retour")
-                            } // Fin HStack visuel bouton retour
-                        }) // Fin bouton
-                    }
-                    
-                    // Petit titre de l'écran (plus simple pour changer sa couleur que le navigationTitle)
-                    ToolbarItemGroup(placement : .principal) {
-                        Text("Défi en cours")
-                            .fontWeight(.bold)
-                    }
-                    
-                }
+//                .toolbar {
+//
+//                    // Bouton retour :
+//                    ToolbarItemGroup(placement : .navigationBarLeading) {
+//                        Button(action : {
+//                            hideKeyboard()
+//                        }, label : {
+//                            HStack {
+//                                Image(systemName: "chevron.left")
+//                                Text("Retour")
+//                            } // Fin HStack visuel bouton retour
+//                        }) // Fin bouton
+//                    }
+//
+//                    // Petit titre de l'écran (plus simple pour changer sa couleur que le navigationTitle)
+//                    ToolbarItemGroup(placement : .principal) {
+//                        Text("Défi en cours")
+//                            .fontWeight(.bold)
+//                    }
+//
+//                }
                 
             } // Fin ZStack
             .foregroundColor(.white)
@@ -120,9 +118,6 @@ struct ChallengeProofView: View {
                 SuccessfulChallengeView_modal(closeSuccessfulChallengeView : $showSuccessfulChallengeView)
             })
             
-            
-            
-        } // Fin NavigationView
         
     } // Fin body
     

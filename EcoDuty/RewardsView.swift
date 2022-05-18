@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct RewardsView: View {
+    init() {
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().tintColor = UIColor.white
+    }
     var body: some View {
         NavigationView {
         ZStack  {
         Color("cosmic-cobalt")
                 .ignoresSafeArea()
+            
+                .navigationBarTitle("Récompenses", displayMode: .inline
+                )
             // NAVBAR :
-                            .toolbar {
-                              ToolbarItemGroup(placement : .principal) {
-                                  VStack {
-                                      Spacer()
-                                      VStack {
-                                          Text("Récompenses")
-                                                .foregroundColor(.white)
-                                            .fontWeight(.bold)
-                                          Rectangle()
-                                              .frame(width: 375, height: 1)
-                                              .foregroundColor(Color.white)
-                                      }
-                                  }
-                                }
-                                
-                            } // FIN TOOLBAR/NAVBAR
+//                            .toolbar {
+//                              ToolbarItemGroup(placement : .principal) {
+//                                  VStack {
+//                                      Spacer()
+//                                      VStack {
+//                                          Text("Récompenses")
+//                                            .foregroundColor(.white)
+//                                            .fontWeight(.bold)
+//                                          Rectangle()
+//                                          .frame(width: 375, height: 1)
+//                                              .foregroundColor(Color.white)
+//                                      }
+//                                  }
+//                                }
+//
+//                            } // FIN TOOLBAR/NAVBAR
             HStack {
                 ScrollView {
                     ZStack {

@@ -34,19 +34,30 @@ struct ChallengeView: View {
                 
                 //                Text(pref.difficultLevel.description)
                 
-                Text("Découvre ton défi personnalisé !")
                 
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding([.top,.leading], 30.0)
-                    .foregroundColor(Color("cosmic-cobalt"))
+                ZStack {
+                    VStack(alignment: .leading) {
+                    Text("Découvre ton défi personnalisé !")
+                    
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding([.top,.leading], 30.0)
+                        .foregroundColor(Color("cosmic-cobalt"))
+                    
+                    
+                    
+                    Text("Dépêche-toi ! \nIl est urgent d'agir !")
+                    
+                        .font(.title3)
+                        .fixedSize()
+                        .foregroundColor(Color("cosmic-cobalt"))
+                        .padding(30)
+                    }
+                        
+                        Image("MascotHappyFaceCroppedChallengeView")
+                        .offset(x: 170, y: -20)
+                }
                 
-                Text("Dépêche-toi ! \nIl est urgent d'agir !")
-                
-                    .font(.title3)
-                    .fixedSize()
-                    .foregroundColor(Color("cosmic-cobalt"))
-                    .padding(30)
                 
                 Spacer()
                 
@@ -73,13 +84,13 @@ struct ChallengeView: View {
                         
                         Text(randomChal.challengeTitle)
                             .foregroundColor(.white)
-                            .font(.title2)
+                            .font(.title)
                             .fontWeight(.bold)
                         
                         Spacer()
                         
                         
-                        Text(randomChal.challengeDescription)
+                        Text(randomChal.challengeTeaser)
                             .frame(height:80)
                         
                         
@@ -92,14 +103,14 @@ struct ChallengeView: View {
                                 .padding(10)
                                 .foregroundColor(Color("cosmic-cobalt"))
                                 .frame(height:30)
-                                .background(Color(randomChal.chalTagNature1.isEmpty ? "" : "yellow-pantone"))
+                                .background(Color(randomChal.chalTagNature1.isEmpty ? "Void" : "yellow-pantone"))
                                 .cornerRadius(20)
                             
                             Text(randomChal.chalTagNature2)
                                 .padding(10)
                                 .foregroundColor(Color("cosmic-cobalt"))
                                 .frame(height:30)
-                                .background(Color(randomChal.chalTagNature2.isEmpty ? "" : "yellow-pantone"))
+                                .background(Color(randomChal.chalTagNature2.isEmpty ? "Void" : "yellow-pantone"))
                                 .cornerRadius(20)
                             
                             Text(randomChal.chalTagNature3)

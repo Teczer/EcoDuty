@@ -64,7 +64,10 @@ Quels types de défis as-tu envie de relever ?
                 Form {
                     
                     // SECTION NIVEAUX DE DIFFICULTÉ :
-                    Section (header : Text("Niveaux de difficulté").foregroundColor(.white)) {
+                    Section (header : Text("Niveaux de difficulté")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                    ) {
                         
                         VStack(alignment: .leading) {
                             
@@ -77,7 +80,10 @@ Quels types de défis as-tu envie de relever ?
                     } // FIN SECTION NIVEAUX DE DIFFICULTÉ
                     
                     // SECTION MODES D'ACTION :
-                    Section (header : Text("Modes d'action").foregroundColor(.white)) {
+                    Section (header : Text("Modes d'action")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                    ) {
                         VStack(alignment:.leading) {
                             ActionTypeView(toggleActionType: $inDoor, image: "iphone", text: "En ligne")
                             ActionTypeView(toggleActionType: $outDoor, image: "figure.wave", text: "Sur le terrain")
@@ -85,7 +91,10 @@ Quels types de défis as-tu envie de relever ?
                     } // FIN SECTION MODES D'ACTION
                     
                     // SECTION TAGS :
-                    Section (header : Text("Thématiques").foregroundColor(.white)) {
+                    Section (header : Text("Thématiques")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                    ) {
                         
                         VStack {
                             

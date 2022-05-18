@@ -36,8 +36,8 @@ struct LocalRankingView_option: View {
                     
                 }
                 Spacer()
-                    .frame(height: 30)
-                MyActualRank(userName: "Tristan", userPoints: "298 100", userPosition: "31", userImage: "masque-8k")
+                    .frame(height: 10)
+                MyActualRank(userName: "Moi", userPoints: "298 100", userPosition: "31", userImage: "masque-8k")
             }
         }
     }
