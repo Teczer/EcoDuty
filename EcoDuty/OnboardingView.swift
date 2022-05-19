@@ -11,7 +11,7 @@ struct OnboardingStep {
     let image : String
 }
 
-private var onBoardingSteps = [
+private let onBoardingSteps = [
     OnboardingStep(image: "OnboardingScreen1"),
     OnboardingStep(image: "OnboardingScreen2"),
     OnboardingStep(image: "OnboardingScreen3"),
@@ -21,11 +21,12 @@ private var onBoardingSteps = [
 
 struct SwiftUIView___OnboardingView: View {
     
+    @Binding var endOnBoarding: Bool
     @State private var currentStep = 0 // Pour onboarding
     
-    init () {
-        UIScrollView.appearance().bounces = false
-    }
+//    init () {
+//        UIScrollView.appearance().bounces = false
+//    }
     
     var body: some View {
         
@@ -43,7 +44,7 @@ struct SwiftUIView___OnboardingView: View {
             } // Fin HStack
             
             TabView(selection : $currentStep) {
-                ForEach(0..<onBoardingSteps.count, id: \.self) { it in
+                ForEach(0..<5) { it in
                     ZStack {
                         Image(onBoardingSteps[it].image)
                         //.resizable()
@@ -55,7 +56,7 @@ struct SwiftUIView___OnboardingView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
             HStack {
-                ForEach(0..<onBoardingSteps.count, id: \.self) { it in
+                ForEach(0..<5) { it in
                     if it == currentStep {
                         Rectangle()
                             .frame(width : 20, height : 10)
@@ -75,6 +76,7 @@ struct SwiftUIView___OnboardingView: View {
                         self.currentStep += 1
                     } else {
                         // GET STARTED LOGIC
+                        endOnBoarding.toggle()
                     }
                 }) {
                     Text(currentStep < onBoardingSteps.count - 1 ? "Suivant" : "C'est parti !")
@@ -90,13 +92,13 @@ struct SwiftUIView___OnboardingView: View {
                 .buttonStyle(PlainButtonStyle())
                 
             } // Fin VStack
-            
+        .background(Color.white)
         }
     }
 
 
 struct SwiftUIView___OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView___OnboardingView()
+        SwiftUIView___OnboardingView(endOnBoarding: .constant(false))
     }
 }

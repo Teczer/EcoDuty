@@ -8,7 +8,7 @@
 import SwiftUI
 
 class GameSettings: ObservableObject {
-    @Published var score = 0
+    @Published var score = 200000
     
     func levelUp() -> String {
             switch score {
@@ -36,39 +36,46 @@ class GameSettings: ObservableObject {
 }
 
 struct ContentView: View {
+    @State private var selectionTab = 0
+    @State private var onBoardDone = false
     @StateObject var settings = GameSettings()
     init() {
-//        UITabBar.appearance().barTintColor = UIColor(Color("yellow-pantone"))
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
         UITabBar.appearance().backgroundColor = UIColor(named: "cosmic-cobalt")
     }
     var body: some View {
-        TabView {
-            ChallengeView()
-                .tabItem {
-                    Image(systemName: "leaf.circle.fill")
-                    Text("Challenge")
-                }
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.circle.fill")
-                        .foregroundColor(Color.white)
-                    Text("Profil")
-                }
-            RewardsView()
-                .tabItem {
-                    Image(systemName: "gift.circle.fill")
-                    Text("Récompenses")
-                }
-            RankingView()
-                .tabItem {
-                    Image(systemName: "star.circle.fill")
-                    Text("Classement")
-                }
-        }
-        .environmentObject(settings)
-        .accentColor(Color("yellow-pantone"))
+        ZStack {
+            TabView(selection: $selectionTab) {
+                ChallengeView()
+                    .tabItem {
+                        Image(systemName: "leaf.circle.fill")
+                        Text("Challenge")
+                    }.tag(1)
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person.circle.fill")
+                            .foregroundColor(Color.white)
+                        Text("Profil")
+                    }.tag(2)
+                RewardsView()
+                    .tabItem {
+                        Image(systemName: "gift.circle.fill")
+                        Text("Récompenses")
+                    }.tag(3)
+                RankingView()
+                    .tabItem {
+                        Image(systemName: "star.circle.fill")
+                        Text("Classement")
+                    }.tag(4)
+            }
+            .zIndex(onBoardDone ? 10 : 0)
+            .environmentObject(settings)
+            .accentColor(Color("yellow-pantone"))
         .ignoresSafeArea()
+            SwiftUIView___OnboardingView(endOnBoarding: $onBoardDone).tag(0)
+                            .zIndex(onBoardDone ? 0 : 10)
+        }
+       
     }
 }
 
