@@ -36,10 +36,6 @@ struct ChallengeView: View {
         NavigationView{
             
             VStack(alignment: .leading) {
-                
-                //                Text(pref.difficultLevel.description)
-                
-                
                 ZStack {
                     VStack(alignment: .leading) {
                     Text("Découvre ton défi personnalisé !")
