@@ -11,7 +11,7 @@ struct OnboardingStep {
     let image : String
 }
 
-private let onBoardingSteps = [
+private var onBoardingSteps = [
     OnboardingStep(image: "OnboardingScreen1"),
     OnboardingStep(image: "OnboardingScreen2"),
     OnboardingStep(image: "OnboardingScreen3"),
@@ -43,7 +43,7 @@ struct SwiftUIView___OnboardingView: View {
             } // Fin HStack
             
             TabView(selection : $currentStep) {
-                ForEach(0..<onBoardingSteps.count) { it in
+                ForEach(0..<onBoardingSteps.count, id: \.self) { it in
                     ZStack {
                         Image(onBoardingSteps[it].image)
                         //.resizable()
@@ -55,7 +55,7 @@ struct SwiftUIView___OnboardingView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
             HStack {
-                ForEach(0..<onBoardingSteps.count) { it in
+                ForEach(0..<onBoardingSteps.count, id: \.self) { it in
                     if it == currentStep {
                         Rectangle()
                             .frame(width : 20, height : 10)
