@@ -110,6 +110,7 @@
 				C324F8232836426B00852A21 /* Rank */,
 				C324F825283642D400852A21 /* Components */,
 				C324F8222836423300852A21 /* Profile */,
+				C324F824283642A500852A21 /* Rewards */,
 			);
 			path = EcoDuty;
 			sourceTree = "<group>";
@@ -127,7 +128,6 @@
 			children = (
 				C34FD721283287BF006072E5 /* ProfileView.swift */,
 				C388A87A28339B4600551292 /* EditProfileView.swift */,
-				C324F824283642A500852A21 /* Rewards */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -148,8 +148,7 @@
 				632264A4282BB79F00DEC480 /* RewardsView.swift */,
 				632264A6282BB7B300DEC480 /* NewRewardView_modal.swift */,
 			);
-			name = Rewards;
-			path = ../../EcoDuty.xcodeproj/Rewards;
+			path = Rewards;
 			sourceTree = "<group>";
 		};
 		C324F825283642D400852A21 /* Components */ = {
