@@ -12,9 +12,11 @@ struct OnboardingStep {
 }
 
 private let onBoardingSteps = [
-    OnboardingStep(image: "OnboardingTest"),
-    OnboardingStep(image: "OnboardingTest"),
-    OnboardingStep(image: "OnboardingTest")
+    OnboardingStep(image: "OnboardingScreen1"),
+    OnboardingStep(image: "OnboardingScreen2"),
+    OnboardingStep(image: "OnboardingScreen3"),
+    OnboardingStep(image: "OnboardingScreen4"),
+    OnboardingStep(image: "OnboardingScreen5B")
 ]
 
 struct SwiftUIView___OnboardingView: View {
@@ -35,6 +37,7 @@ struct SwiftUIView___OnboardingView: View {
                 }, label: {
                     Text("Passer")
                         .padding(16)
+                        .foregroundColor(Color("cosmic-cobalt"))
                 })
                 
             } // Fin HStack
@@ -75,12 +78,14 @@ struct SwiftUIView___OnboardingView: View {
                     }
                 }) {
                     Text(currentStep < onBoardingSteps.count - 1 ? "Suivant" : "C'est parti !")
+                        .font(.headline)
+                        .fontWeight(.bold)
                         .padding(16)
                         .frame(maxWidth : .infinity)
                         .background(Color("cosmic-cobalt"))
                         .cornerRadius(20)
                         .padding(.horizontal, 16)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("yellow-pantone"))
                 }
                 .buttonStyle(PlainButtonStyle())
                 
