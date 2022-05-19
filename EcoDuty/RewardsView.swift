@@ -22,23 +22,6 @@ struct RewardsView: View {
             
                 .navigationBarTitle("Récompenses", displayMode: .inline
                 )
-            // NAVBAR :
-//                            .toolbar {
-//                              ToolbarItemGroup(placement : .principal) {
-//                                  VStack {
-//                                      Spacer()
-//                                      VStack {
-//                                          Text("Récompenses")
-//                                            .foregroundColor(.white)
-//                                            .fontWeight(.bold)
-//                                          Rectangle()
-//                                          .frame(width: 375, height: 1)
-//                                              .foregroundColor(Color.white)
-//                                      }
-//                                  }
-//                                }
-//
-//                            } // FIN TOOLBAR/NAVBAR
             HStack {
                 ScrollView {
                     ZStack {

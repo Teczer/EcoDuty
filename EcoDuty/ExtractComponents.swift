@@ -269,16 +269,16 @@ struct ProgressionView: View {
                         .padding(.bottom, 100)
                 )
                 .overlay(
-                    RectangleNiveau(userProgressionActualLevel: "4")
+                    RectangleNiveau(userProgressionActualLevel: "5")
                 )
                 .overlay(
-                    RectangleLevel2(userProgressionNextLevel: "5")
+                    RectangleLevel2(userProgressionNextLevel: "6")
                 )
                 .overlay(
                     VStack {
                         Spacer()
                             .frame(height: 40)
-                        ProgressView("", value: 100, total: 100)
+                        ProgressView("", value: 70, total: 100)
                             .frame(width: 130.0, height: 10.0)
                     }
                 )
@@ -472,8 +472,11 @@ struct HeadLineProfile: View {
                     .foregroundColor(Color("yellow-pantone"))
                     .font(.title)
                     .bold()
+                    .padding(.bottom, 5)
                 Text("\(userGenreAndAge)")
+                    .padding(.bottom, 5)
                 Text("\(userLocalization)")
+                    .padding(.bottom, 5)
                 Text("\(userLevelAndTitle)")
                 
                     .font(.title3)
@@ -495,7 +498,7 @@ struct Description: View {
                 .foregroundColor(Color("yellow-pantone"))
                 .bold()
                 .padding()
-            Text("Bonjour lala dolor sit aneat, conseacteatur adipisci ealit, sead eaiusnod teanpor incidunt ut laborea eat dolorea nagna aliqua. Ut eanin ad ninin veanian, quis nostrun eaxearcitationean ullan corporis suscipit laboriosan, nisi ut aliquid eax eaa connodi conseaquatur. Quis autea iurea reapreaheandearit in voluptatea vealit eassea cillun dolorea eau fugiat nulla pariatur.")
+            Text("Yooo mon prénom à moi c'est Yohan, je suis un très grand fan d'Ariana Grande, je passe mes journées à turn up sur sa discographie que je vous conseil d'aller écouter !\n \nJe suis très compétitif donc faites attention à vous j'arrive détroner le top hehehe 😎 !")
                 .foregroundColor(Color.white)
                 .padding()
                 .frame(width:300)
