@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailedChallengeView: View {
     
     
-//    @EnvironmentObject var settings: GameSettings
+    @EnvironmentObject var settings: GameSettings
     
     @State var openDroppedChallengeViewModal = false
     
@@ -135,7 +135,7 @@ struct DetailedChallengeView: View {
             .sheet(isPresented: $openDroppedChallengeViewModal, content: {
                 DroppedChallengeView_modal(closeDroppedChallengeView:  $openDroppedChallengeViewModal)
         })
-//            .environmentObject(settings)
+            .environmentObject(settings)
         
         
         }
@@ -145,6 +145,6 @@ struct DetailedChallengeView: View {
  
 struct DetailedChallengeView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedChallengeView(myChall2: .constant(challenges[0]))//.environmentObject(GameSettings())
+        DetailedChallengeView(myChall2: .constant(challenges[0])).environmentObject(GameSettings())
     }
 }

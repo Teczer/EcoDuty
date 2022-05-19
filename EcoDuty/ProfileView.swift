@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var settings: GameSettings
     init() {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -27,7 +28,7 @@ struct ProfileView: View {
                                 HStack(spacing:10){
                                     
                                     
-                                    HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Île-de-France", userLevelAndTitle: "Niveau 4: Eco Defender")
+                                    HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Île-de-France", userLevelAndTitle: "\(settings.levelUp()): Eco Defender")
                                 }
                             }
                             
@@ -50,11 +51,12 @@ struct ProfileView: View {
                 }
                 .padding(.vertical)
             }
+            .environmentObject(settings)
         }
     }
     struct ProfileView_Previews: PreviewProvider {
         static var previews: some View {
-            ProfileView()
+            ProfileView().environmentObject(GameSettings())
         }
     }
 }

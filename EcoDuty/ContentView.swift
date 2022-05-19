@@ -7,35 +7,36 @@
 
 import SwiftUI
 
-//class GameSettings: ObservableObject {
-//    @Published var score = 0
-//    
-//    func levelUp() -> String {
-//            switch score {
-//            case 0..<20000:
-//                return "Niveau 1"
-//            case 20000..<50000:
-//                return "Niveau 2"
-//            case 50000..<90000:
-//                return "Niveau 3"
-//            case 90000..<200000:
-//                return"Niveau 4"
-//            case 200000..<350000:
-//                return "Niveau 5"
-//            case 350000..<650000 :
-//                return "Niveau 5"
-//            case 650000..<1000000 :
-//                return "Niveau 5"
-//            case 1000000..<1500000 :
-//                return "Niveau 5"
-//            default:
-//                return "Niveau 1"
-//            }
-//        }
-//    
-//}
+class GameSettings: ObservableObject {
+    @Published var score = 0
+    
+    func levelUp() -> String {
+            switch score {
+            case 0..<20000:
+                return "Niveau 1"
+            case 20000..<50000:
+                return "Niveau 2"
+            case 50000..<90000:
+                return "Niveau 3"
+            case 90000..<200000:
+                return"Niveau 4"
+            case 200000..<350000:
+                return "Niveau 5"
+            case 350000..<650000 :
+                return "Niveau 5"
+            case 650000..<1000000 :
+                return "Niveau 5"
+            case 1000000..<1500000 :
+                return "Niveau 5"
+            default:
+                return "Niveau 1"
+            }
+        }
+    
+}
 
 struct ContentView: View {
+    @StateObject var settings = GameSettings()
     init() {
 //        UITabBar.appearance().barTintColor = UIColor(Color("yellow-pantone"))
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
@@ -65,6 +66,7 @@ struct ContentView: View {
                     Text("Classement")
                 }
         }
+        .environmentObject(settings)
         .accentColor(Color("yellow-pantone"))
         .ignoresSafeArea()
     }

@@ -9,7 +9,7 @@ struct ChallengeView: View {
     }
     
     
-//    @EnvironmentObject var settings: GameSettings
+    @EnvironmentObject var settings: GameSettings
     
     
     //array de Challenge -> boucle + filtre -> randomElement()
@@ -222,7 +222,7 @@ struct ChallengeView: View {
                     )}
                 
             }
-//            .environmentObject(settings)
+            .environmentObject(settings)
         }
     }
     
@@ -242,7 +242,7 @@ struct ChallengeView: View {
     
     struct ChallengeView_Previews: PreviewProvider {
         static var previews: some View {
-            ChallengeView()//.environmentObject(GameSettings())
+            ChallengeView().environmentObject(GameSettings())
         }
     }
     
