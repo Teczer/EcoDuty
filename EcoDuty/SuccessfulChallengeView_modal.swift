@@ -9,10 +9,11 @@ import SwiftUI
 
 struct SuccessfulChallengeView_modal: View {
     
-//    @EnvironmentObject var settings: GameSettings
+    @EnvironmentObject var settings: GameSettings
     
     
     @Binding var closeSuccessfulChallengeView : Bool
+    @Binding var mySuccessChall : Challenge
     
     var body: some View {
             ZStack{
@@ -42,17 +43,19 @@ struct SuccessfulChallengeView_modal: View {
                         .multilineTextAlignment(.center)
                         .padding(.top)
                         .frame(width: 270.0, height:60.0)
-                    Text("Tu remportes 40 000 points.")
+                    Text("Tu remportes \(mySuccessChall.challengePoints)  points.")
                         .foregroundColor(Color("cosmic-cobalt"))
                         .multilineTextAlignment(.center)
                         .frame(width: 270.0, height:50)
                     //interpolation necessaire pour appeller le nombre de points du defi
                     
-                    Text("Ton score s'élève maintenant à : 40 000 points \nBravo Eco Defender ! \nLa révolution verte est en marche ! ")
+                    Text("Ton score s'élève maintenant à : \(settings.score) ")
+                        .fontWeight(.bold)
                     //ci dessus entre crochets interpolation pour appeler le score mis a jour et le titre associé au niveau
                         .foregroundColor(Color("cosmic-cobalt"))
                         .multilineTextAlignment(.center)
-                        .frame(width: 250.0, height: 117.0)
+                        .frame(width: 250.0, height: 70.0)
+                    
                     Text("Prêt.e pour un nouveau challenge ? ")
                         .foregroundColor(Color("cosmic-cobalt"))
                         .multilineTextAlignment(.center)
@@ -77,7 +80,7 @@ struct SuccessfulChallengeView_modal: View {
                 
                 
             }
-//            .environmentObject(settings)
+            .environmentObject(settings)
         
         
     }
@@ -92,6 +95,6 @@ struct SuccessfulChallengeView_modal: View {
 struct SuccessfulChallengeView_modal_Previews: PreviewProvider {
     static var previews: some View {
 
-        SuccessfulChallengeView_modal(closeSuccessfulChallengeView : .constant(true))//.environmentObject(GameSettings())
+        SuccessfulChallengeView_modal(closeSuccessfulChallengeView : .constant(true), mySuccessChall: .constant(challenges[0])).environmentObject(GameSettings())
     }
 }

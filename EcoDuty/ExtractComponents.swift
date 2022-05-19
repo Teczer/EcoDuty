@@ -9,13 +9,42 @@ import SwiftUI
 
 struct ExtractComponents: View {
     var body: some View {
-        ZStack  {
+      ZStack  {
             Color("cosmic-cobalt")
                 .ignoresSafeArea()
-            Description()
+            ScrollView{
+                
+                VStack(spacing:-35){
+                        VStack {
+                            HStack(spacing:10){
+                                
+                                
+                                HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Île-de-France", userLevelAndTitle: "Niveau 4")
+                            }
+                        }
+                        
+                        VStack{
+                            Description()
+                            ProgressionView()
+                                .padding()
+                            BadgessView()
+                        }
+                        
+                    }
+                .navigationBarTitle("Profil", displayMode: .inline
+                )
+                .navigationBarItems(trailing:
+                                        NavigationLink(destination: EditProfileView(), label: ({
+                    Text("Editer")
+                })
+                                                      )
+                )
+            }
+            .padding(.vertical)
+        }
         }
     }
-}
+
 
 
 
@@ -432,9 +461,11 @@ struct HeadLineProfile: View {
                     .resizable()
                     .scaledToFit()
                     .clipShape(Circle())
+                    .frame(width: 200, height: 300)
                     .background(
                         Circle()
-                            .stroke(Color(("medium-slate-blue")), lineWidth: 14)                                )
+                            .stroke(Color(("medium-slate-blue")), lineWidth: 14)
+                              )
             }
             VStack(alignment:.leading){
                 Text("\(userName)")

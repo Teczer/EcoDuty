@@ -35,13 +35,13 @@ struct ChallengeProofView: View {
                     Text(challengePointsAdditional.challengeTitle)
                         .font(.title)
                         .fontWeight(.bold)
-                    Text("\(settings.levelUp())")
-//                    Text("Comment valider ce défi ?")
+//                    Text("\(settings.levelUp())")
+                    Text("Comment valider ce défi ?")
                         .font(.title3)
-                    Text("\(settings.score)")
-//                    Text("""
-//        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-//        """)
+//                    Text("\(settings.score)")
+                    Text("""
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        """)
                 } // Fin VStack éléments textuels
                 
                 // ENCADRÉ BLANC :
@@ -69,7 +69,7 @@ struct ChallengeProofView: View {
                         //Spacer()
                         
                         // Bouton "Valider le défi" :
-                        NavigationLink (destination: SuccessfulChallengeView_modal(closeSuccessfulChallengeView: $showSuccessfulChallengeView)) {
+                        NavigationLink (destination: SuccessfulChallengeView_modal(closeSuccessfulChallengeView: $showSuccessfulChallengeView, mySuccessChall: .constant(challenges[0]))) {
                             Button(action : {
                                 showSuccessfulChallengeView.toggle()
                                 settings.score+=challengePointsAdditional.challengePoints
@@ -102,7 +102,7 @@ struct ChallengeProofView: View {
         .sheet(isPresented: $isShowingImagePicker, content: { ImagePicker(imageFromImagePicker : $imageFromImagePicker)
         })
         .sheet(isPresented: $showSuccessfulChallengeView, content: {
-            SuccessfulChallengeView_modal(closeSuccessfulChallengeView : $showSuccessfulChallengeView)
+            SuccessfulChallengeView_modal(closeSuccessfulChallengeView : $showSuccessfulChallengeView, mySuccessChall: .constant(challenges[0]))
         })
         
         .environmentObject(settings)
