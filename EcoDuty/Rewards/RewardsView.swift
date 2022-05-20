@@ -86,7 +86,7 @@ struct RewardsView: View {
                 Spacer()
             }.padding(28)
         }
-        } .accentColor(Color.white) 
+        } .accentColor(Color.white)
   }
 }
 

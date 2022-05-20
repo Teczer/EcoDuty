@@ -12,35 +12,7 @@ struct ExtractComponents: View {
       ZStack  {
             Color("cosmic-cobalt")
                 .ignoresSafeArea()
-            ScrollView{
-                
-                VStack(spacing:-35){
-                        VStack {
-                            HStack(spacing:10){
-                                
-                                
-                                HeadLineProfile(userName: "Teczer", userGenreAndAge: "Homme, 18 ans", userLocalization: "Île-de-France", userLevelAndTitle: "Niveau 4")
-                            }
-                        }
-                        
-                        VStack{
-                            Description()
-                            ProgressionView()
-                                .padding()
-                            BadgessView()
-                        }
-                        
-                    }
-                .navigationBarTitle("Profil", displayMode: .inline
-                )
-                .navigationBarItems(trailing:
-                                        NavigationLink(destination: EditProfileView(), label: ({
-                    Text("Editer")
-                })
-                                                      )
-                )
-            }
-            .padding(.vertical)
+          LevelCollectRewards(niveauText: "Niveau 5")
         }
         }
     }
@@ -132,7 +104,7 @@ struct LevelCollectRewards: View {
                 .frame(width: 306.61, height: 73.33)
                 .cornerRadius(20)
                 .foregroundColor(Color("yellow-pantone"))
-                .shadow(color: .black, radius: 10, x: 5, y: 7)
+                .shadow(color: .yellow, radius: 10, x: 1, y: 1)
             // Design mini rectangle Bleu Violet à droite
             HStack {
                 Spacer()

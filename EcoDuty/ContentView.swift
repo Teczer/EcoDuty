@@ -8,7 +8,7 @@
 import SwiftUI
 
 class GameSettings: ObservableObject {
-    @Published var score = 200000
+    @Published var score = 250000
     
     func levelUp() -> String {
             switch score {
@@ -23,9 +23,9 @@ class GameSettings: ObservableObject {
             case 200000..<350000:
                 return "Niveau 5"
             case 350000..<650000 :
-                return "Niveau 5"
+                return "Niveau 6"
             case 650000..<1000000 :
-                return "Niveau 5"
+                return "Niveau 7"
             case 1000000..<1500000 :
                 return "Niveau 5"
             default:

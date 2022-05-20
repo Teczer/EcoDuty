@@ -58,9 +58,9 @@ let challenge3 = Challenge(challengeTitle: "Partage tes préoccupations",
                            challengeStatus: "★ ★ ☆",
                            prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: true, difficultLevel: false), tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
-let challenge4 = Challenge(challengeTitle: "Renforce la visibilité de tes préoccupations.",
+let challenge4 = Challenge(challengeTitle: "Tes préoccupations.",
                            challengeTeaser: "Plus de visibilité c'est plus de force de conviction",
-                           challengeDescription: "Mets à jour ton profil sur les résaux et Captive l'attention sur les enjeux liés à la biodiversité. \nPour valider ton défi, fais une capture d'écran du nouveau  design de ton profil.",
+                           challengeDescription: "Mets à jour ton profil sur les réseaux. \nPour valider ton défi, fais une capture d'écran du nouveau design de ton profil.",
                            challengeTitleDetail: "Ton défi",
                            challengeInOut: "Depuis ton téléphone",
                            chalTagNature1 : "#nature",
@@ -70,7 +70,7 @@ let challenge4 = Challenge(challengeTitle: "Renforce la visibilité de tes préo
                            challengeStatus: "★ ★ ☆",
                            prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: true, difficultLevel: false), tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
-let challenge5 = Challenge(challengeTitle: "Avant c'est pollué,  Après c'est tout propre",
+let challenge5 = Challenge(challengeTitle: "C'est pollué !",
                            challengeTeaser: "Se retrousser les manches (sans oublier de mettre des gants...)",
                            challengeDescription: "Réunis quelques amis et prenez en charge le nettoyage d'un endroit pollué par les déchets. Une photo de la récolte validera ton défi.",
                            challengeTitleDetail: "Ton défi",
@@ -122,7 +122,7 @@ let challenge8 = Challenge(challengeTitle: "Un pavé dans la mare",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: true, difficultLevel: false),
                            tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
-let challenge9 = Challenge(challengeTitle: "Un refuge pour la biodiversité",
+let challenge9 = Challenge(challengeTitle: "Un refuge",
                            challengeTeaser: "Les oiseaux en sont un maillon indispensable",
                            challengeDescription: "Place une bouteille pleine ou une brique dans le réservoir des toilettes. C'est 1,5 litre d'eau économisée ! Une photo de l'installation validera ton défi.",
                            challengeTitleDetail: "Ton défi",
@@ -135,7 +135,7 @@ let challenge9 = Challenge(challengeTitle: "Un refuge pour la biodiversité",
                            prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: true, difficultLevel: false),
                            tags: Tag(waste: false, animals: true, manif: false, petition: false, food: false, nature: true))
  
-let challenge10 = Challenge(challengeTitle: "Une oasis au milieu du béton",
+let challenge10 = Challenge(challengeTitle: "Une oasis, du béton",
                             challengeTeaser: "Un environnement recréé, c'est un espace pour ceux qui n'en ont plus",
                             challengeDescription: "Installe dans ton quartier un petit coin de verdure partagé et photographie les jeunes pousses pour valider ton défi.",
                             challengeTitleDetail: "Ton défi",
@@ -149,7 +149,7 @@ let challenge10 = Challenge(challengeTitle: "Une oasis au milieu du béton",
                             tags: Tag(waste: false, animals: true, manif: false, petition: false, food: false, nature: true))
  
 let challenge11 = Challenge(challengeTitle: "Que d'eau !",
-                            challengeTeaser: "Si on prenait exemple sur nos ancêtres ?",
+                            challengeTeaser: "Prendre exemple sur nos ancêtres ?",
                             challengeDescription: "Une douche par jour est-elle vraiment nécessaire ? Réduis leur nombre dans la mesure du possible et vois ta facture d'eau s'évaporer. Une photo des factures comparées validera ton défi.",
                             challengeTitleDetail: "Ton défi",
                             challengeInOut: "Sur le terrain",
@@ -173,9 +173,9 @@ let challenge12 = Challenge(challengeTitle: "Allo ? Allo !?",
                             prefer: Preferences(irlMethod: true, onlineMethod: false, easyLevel: false, mediumLevel: false, difficultLevel: true),
                             tags: Tag(waste: true, animals: false, manif: false, petition: false, food: false, nature: true))
  
-let challenge13 = Challenge(challengeTitle: "Pas de toxiques dans tes déchets",
+let challenge13 = Challenge(challengeTitle: "Déchets toxiques",
                             challengeTeaser: "Certains déchets sont une vraie plaie pour les écosystèmes",
-                            challengeDescription: "Trie tes médicaments périmés et apporte-les à ton pharmacien.  Photographie le résultat du tri pour valider ton défi.",
+                            challengeDescription: "Trie tes médicaments périmés et apporte-les à ton pharmacien. Photographie le résultat du tri pour valider ton défi.",
                             challengeTitleDetail: "Ton défi",
                             challengeInOut: "Sur le terrain",
                             chalTagNature1 : "#nature",
@@ -214,7 +214,7 @@ let challenge15 = Challenge(challengeTitle: "Change ton thé",
  
 let challenge16 = Challenge(challengeTitle: "Vide ta corbeille",
                             challengeTeaser: "Une corbeille qui consomme de l'énergie ?",
-                            challengeDescription: " La corbeille de tes mails mobilise de l'energie sur les serveurs. Est-ce vraiment raisonnable ? Trie et vide ta corbeille. Fais une capture d'écran de ta corbeille vide pour valider ton défi.",
+                            challengeDescription: " La corbeille de tes mails mobilise de l'energie sur les serveurs, trie et vide ta corbeille. Fais une capture d'écran de ta corbeille vide pour valider ton défi.",
                             challengeTitleDetail: "Ton défi",
                             challengeInOut: "Depuis ton mobile",
                             chalTagNature1 : "#nature",
@@ -225,7 +225,7 @@ let challenge16 = Challenge(challengeTitle: "Vide ta corbeille",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: false, difficultLevel: false),
                             tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
                  
-let challenge17 = Challenge(challengeTitle: "Le parrain des abeilles c'est toi!",
+let challenge17 = Challenge(challengeTitle: "Le parrain des abeilles",
                             challengeTeaser: "Agrandis ta famille de coeur",
                             challengeDescription: "Parraine une ruche. Fais une capture d'écran du parrainage pour valider ton défi.",
                             challengeTitleDetail: "Ton défi",
@@ -237,7 +237,7 @@ let challenge17 = Challenge(challengeTitle: "Le parrain des abeilles c'est toi!"
                             challengeStatus: "★ ★ ★",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: false, difficultLevel: true), tags: Tag(waste: false, animals: true, manif: false, petition: false, food: false, nature: true))
  
-let challenge18 = Challenge(challengeTitle: "Le parrain des arbres, c'est toi",
+let challenge18 = Challenge(challengeTitle: "Le parrain des arbres",
                             challengeTeaser: "Agrandis ta famille de coeur",
                             challengeDescription: "Parraine un arbre.  Fais une capture d'écran du parrainage pour valider ton défi.",
                             challengeTitleDetail: "Ton défi",
@@ -250,7 +250,7 @@ let challenge18 = Challenge(challengeTitle: "Le parrain des arbres, c'est toi",
                             prefer: Preferences(irlMethod: false, onlineMethod: true, easyLevel: false, mediumLevel: false, difficultLevel: true),
                             tags: Tag(waste: false, animals: false, manif: false, petition: false, food: false, nature: true))
  
-let challenge19 = Challenge(challengeTitle: "Le parrain des animaux, c'est toi",
+let challenge19 = Challenge(challengeTitle: "Le parrain des animaux",
                             challengeTeaser: "Agrandis ta famille de coeur",
                             challengeDescription: "Parraine un animal.\nPour valider ton défi fait une photo du parrainage.",
                             challengeTitleDetail: "Ton défi",
